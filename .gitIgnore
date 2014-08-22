@@ -8,6 +8,7 @@ bin/
 bin-debug/
 bin-release/
 .metadata/
+morndemo/
 
 # Other files and folders
 .settings/
