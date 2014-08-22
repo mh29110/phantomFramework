@@ -1,0 +1,4 @@
+package phantom.core.ns
+{
+	public namespace PhantomNamespace = "http://ns.uqee.com/hy_project/internal/controller";
+}

@@ -1049,3 +1049,1164 @@ java.lang.IllegalArgumentException: Argument not valid
 
 !ENTRY net.sourceforge.vrapper.eclipse 4 0 2014-08-22 15:24:57.675
 !MESSAGE current state was null - this shouldn't have happened!
+!SESSION 2014-08-22 16:02:24.230 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_31
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2014-08-22 16:03:51.902
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-08-22 16:03:51.902
+!MESSAGE A conflict occurred for CTRL+G:
+Binding(CTRL+G,
+	ParameterizedCommand(Command(com.adobe.flexbuilder.as.editor.find.all.declarations.in.workspace,在工作空间中查找所有声明,
+		,
+		Category(com.adobe.flexbuilder.editorcore.navigation.category,导航,null,true),
+		LegacyHandlerWrapper(ActionHandler(action=com.adobe.flexbuilder.as.editor.ui.actions.FindAllDeclarationsAction@4c6d47ff)),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.adobe.flexide.editorcore.flexEditorScope,,,system)
+Binding(CTRL+G,
+	ParameterizedCommand(Command(com.adobe.flexbuilder.as.editor.find.all.declarations.in.workspace,在工作空间中查找所有声明,
+		,
+		Category(com.adobe.flexbuilder.editorcore.navigation.category,导航,null,true),
+		LegacyHandlerWrapper(ActionHandler(action=com.adobe.flexbuilder.as.editor.ui.actions.FindAllDeclarationsAction@4c6d47ff)),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.adobe.flexbuilder.as.editor.context.packageexplorer,,,system)
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.search.declarations.in.workspace,工作空间中的声明,
+		在工作空间中搜索对所选元素的声明,
+		Category(org.eclipse.search.ui.category.search,搜索,搜索命令类别,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-08-22 16:03:51.902
+!MESSAGE A conflict occurred for CTRL+SHIFT+G:
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(com.adobe.flexbuilder.as.editor.find.all.references.in.workspace,在工作空间中查找所有引用,
+		,
+		Category(com.adobe.flexbuilder.editorcore.navigation.category,导航,null,true),
+		LegacyHandlerWrapper(ActionHandler(action=com.adobe.flexbuilder.as.editor.ui.actions.FindAllReferencesAction@1a91dd8c)),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.adobe.flexide.editorcore.flexEditorScope,,,system)
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(com.adobe.flexbuilder.as.editor.find.all.references.in.workspace,在工作空间中查找所有引用,
+		,
+		Category(com.adobe.flexbuilder.editorcore.navigation.category,导航,null,true),
+		LegacyHandlerWrapper(ActionHandler(action=com.adobe.flexbuilder.as.editor.ui.actions.FindAllReferencesAction@1a91dd8c)),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.adobe.flexbuilder.as.editor.context.packageexplorer,,,system)
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace,工作空间中的引用,
+		在工作空间中搜索对所选元素的引用,
+		Category(org.eclipse.search.ui.category.search,搜索,搜索命令类别,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2014-08-22 17:47:31.970
+!MESSAGE D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+!STACK 0
+java.io.FileNotFoundException: D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.buildSWF(ASApplicationBuilderNext.java:263)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.build(ASApplicationBuilderNext.java:103)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASBuilderNext.build(ASBuilderNext.java:117)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASItemBuilder.build(ASItemBuilder.java:93)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.buildItem(FlexProjectBuilder.java:708)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.build(FlexProjectBuilder.java:412)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.build(FlexIncrementalBuilder.java:171)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2014-08-22 18:05:18.147
+!MESSAGE 从插件调用代码时出现问题:“org.eclipse.core.resources”。
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: 删除资源时遇到问题。
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:793)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:05:18.148
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2014-08-22 18:05:18.148
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:18.148
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:18.148
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:05:18.148
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 2 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:18.148
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:18.148
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+
+!ENTRY org.eclipse.core.resources 4 75 2014-08-22 18:05:18.186
+!MESSAGE 在构建期间出错。
+!SUBENTRY 1 com.adobe.flexbuilder.project 4 75 2014-08-22 18:05:18.186
+!MESSAGE 在项目“TestApp”中运行构建器“Compiler”时出错。
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: 删除资源时遇到问题。
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:793)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2014-08-22 18:05:18.186
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 3 org.eclipse.core.resources 4 273 2014-08-22 18:05:18.186
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:18.186
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:18.186
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:05:18.186
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2014-08-22 18:05:18.187
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:18.187
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:18.187
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2014-08-22 18:05:19.181
+!MESSAGE D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+!STACK 0
+java.io.FileNotFoundException: D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.buildSWF(ASApplicationBuilderNext.java:263)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.build(ASApplicationBuilderNext.java:103)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASBuilderNext.build(ASBuilderNext.java:117)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASItemBuilder.build(ASItemBuilder.java:93)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.buildItem(FlexProjectBuilder.java:708)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.build(FlexProjectBuilder.java:412)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.build(FlexIncrementalBuilder.java:171)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2014-08-22 18:05:33.941
+!MESSAGE 从插件调用代码时出现问题:“org.eclipse.core.resources”。
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: 删除资源时遇到问题。
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:793)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:05:33.941
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2014-08-22 18:05:33.941
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:33.942
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:33.942
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:05:33.942
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 2 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:33.942
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:33.942
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+
+!ENTRY org.eclipse.core.resources 4 75 2014-08-22 18:05:34.000
+!MESSAGE 在构建期间出错。
+!SUBENTRY 1 com.adobe.flexbuilder.project 4 75 2014-08-22 18:05:34.000
+!MESSAGE 在项目“TestApp”中运行构建器“Compiler”时出错。
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: 删除资源时遇到问题。
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:793)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2014-08-22 18:05:34.000
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 3 org.eclipse.core.resources 4 273 2014-08-22 18:05:34.000
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:34.000
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:34.000
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:05:34.000
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2014-08-22 18:05:34.000
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:34.001
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2014-08-22 18:05:34.001
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2014-08-22 18:05:34.972
+!MESSAGE D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+!STACK 0
+java.io.FileNotFoundException: D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.buildSWF(ASApplicationBuilderNext.java:263)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.build(ASApplicationBuilderNext.java:103)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASBuilderNext.build(ASBuilderNext.java:117)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASItemBuilder.build(ASItemBuilder.java:93)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.buildItem(FlexProjectBuilder.java:708)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.build(FlexProjectBuilder.java:412)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.build(FlexIncrementalBuilder.java:171)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2014-08-22 18:06:19.352
+!MESSAGE D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+!STACK 0
+java.io.FileNotFoundException: D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.buildSWF(ASApplicationBuilderNext.java:263)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.build(ASApplicationBuilderNext.java:103)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASBuilderNext.build(ASBuilderNext.java:117)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASItemBuilder.build(ASItemBuilder.java:93)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.buildItem(FlexProjectBuilder.java:708)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.build(FlexProjectBuilder.java:412)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.build(FlexIncrementalBuilder.java:171)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2014-08-22 18:06:32.905
+!MESSAGE D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+!STACK 0
+java.io.FileNotFoundException: D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.buildSWF(ASApplicationBuilderNext.java:263)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.build(ASApplicationBuilderNext.java:103)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASBuilderNext.build(ASBuilderNext.java:117)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASItemBuilder.build(ASItemBuilder.java:93)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.buildItem(FlexProjectBuilder.java:708)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.build(FlexProjectBuilder.java:412)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.build(FlexIncrementalBuilder.java:171)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2014-08-22 18:07:25.284
+!MESSAGE D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+!STACK 0
+java.io.FileNotFoundException: D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.buildSWF(ASApplicationBuilderNext.java:263)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.build(ASApplicationBuilderNext.java:103)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASBuilderNext.build(ASBuilderNext.java:117)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASItemBuilder.build(ASItemBuilder.java:93)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.buildItem(FlexProjectBuilder.java:708)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.build(FlexProjectBuilder.java:412)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.build(FlexIncrementalBuilder.java:171)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2014-08-22 18:07:34.918
+!MESSAGE D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+!STACK 0
+java.io.FileNotFoundException: D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.buildSWF(ASApplicationBuilderNext.java:263)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.build(ASApplicationBuilderNext.java:103)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASBuilderNext.build(ASBuilderNext.java:117)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASItemBuilder.build(ASItemBuilder.java:93)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.buildItem(FlexProjectBuilder.java:708)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.build(FlexProjectBuilder.java:412)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.build(FlexIncrementalBuilder.java:171)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2014-08-22 18:07:38.333
+!MESSAGE 从插件调用代码时出现问题:“org.eclipse.core.resources”。
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: 删除资源时遇到问题。
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:793)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:07:38.333
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2014-08-22 18:07:38.333
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:07:38.334
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2014-08-22 18:07:38.334
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:07:38.334
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 2 org.eclipse.core.filesystem 4 273 2014-08-22 18:07:38.334
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:07:38.334
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+
+!ENTRY org.eclipse.core.resources 4 75 2014-08-22 18:07:38.370
+!MESSAGE 在构建期间出错。
+!SUBENTRY 1 com.adobe.flexbuilder.project 4 75 2014-08-22 18:07:38.370
+!MESSAGE 在项目“TestApp”中运行构建器“Compiler”时出错。
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: 删除资源时遇到问题。
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:793)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2014-08-22 18:07:38.370
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 3 org.eclipse.core.resources 4 273 2014-08-22 18:07:38.370
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2014-08-22 18:07:38.370
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 5 org.eclipse.core.filesystem 4 273 2014-08-22 18:07:38.370
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:07:38.370
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2014-08-22 18:07:38.370
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:746)
+	at com.adobe.flexbuilder.project.compiler.internal.BuilderUtils.deleteIncludingReadOnly(BuilderUtils.java:635)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.clean(FlexIncrementalBuilder.java:122)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:730)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:513)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:422)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:304)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:07:38.370
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2014-08-22 18:07:38.370
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+
+!ENTRY com.adobe.flexbuilder.project 4 43 2014-08-22 18:07:39.352
+!MESSAGE D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+!STACK 0
+java.io.FileNotFoundException: D:\phantom\workspace\TestApp\bin-debug\TestApp.swf (另一个程序正在使用此文件，进程无法访问。)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.buildSWF(ASApplicationBuilderNext.java:263)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASApplicationBuilderNext.build(ASApplicationBuilderNext.java:103)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASBuilderNext.build(ASBuilderNext.java:117)
+	at com.adobe.flexbuilder.multisdk.compiler.internal.ASItemBuilder.build(ASItemBuilder.java:93)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.buildItem(FlexProjectBuilder.java:708)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexProjectBuilder.build(FlexProjectBuilder.java:412)
+	at com.adobe.flexbuilder.project.compiler.internal.FlexIncrementalBuilder.build(FlexIncrementalBuilder.java:171)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 273 2014-08-22 18:07:53.823
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:07:53.823
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.ui.ide.undo.WorkspaceUndoUtil.delete(WorkspaceUndoUtil.java:811)
+	at org.eclipse.ui.ide.undo.WorkspaceUndoUtil.delete(WorkspaceUndoUtil.java:191)
+	at org.eclipse.ui.ide.undo.AbstractResourcesOperation.delete(AbstractResourcesOperation.java:119)
+	at org.eclipse.ui.ide.undo.DeleteResourcesOperation.doExecute(DeleteResourcesOperation.java:67)
+	at org.eclipse.ui.ide.undo.AbstractWorkspaceOperation$1.run(AbstractWorkspaceOperation.java:206)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.ide.undo.AbstractWorkspaceOperation.execute(AbstractWorkspaceOperation.java:204)
+	at org.eclipse.core.commands.operations.DefaultOperationHistory.execute(DefaultOperationHistory.java:513)
+	at com.adobe.flexbuilder.editors.derived.ui.navigator.FlexResourceDeleteAction$2.run(FlexResourceDeleteAction.java:985)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 2 org.eclipse.core.filesystem 4 273 2014-08-22 18:07:53.824
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:07:53.824
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+
+!ENTRY org.eclipse.core.resources 4 273 2014-08-22 18:07:59.716
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:07:59.716
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.ui.ide.undo.WorkspaceUndoUtil.delete(WorkspaceUndoUtil.java:811)
+	at org.eclipse.ui.ide.undo.WorkspaceUndoUtil.delete(WorkspaceUndoUtil.java:191)
+	at org.eclipse.ui.ide.undo.AbstractResourcesOperation.delete(AbstractResourcesOperation.java:119)
+	at org.eclipse.ui.ide.undo.DeleteResourcesOperation.doExecute(DeleteResourcesOperation.java:67)
+	at org.eclipse.ui.ide.undo.AbstractWorkspaceOperation$1.run(AbstractWorkspaceOperation.java:206)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.ide.undo.AbstractWorkspaceOperation.execute(AbstractWorkspaceOperation.java:204)
+	at org.eclipse.core.commands.operations.DefaultOperationHistory.execute(DefaultOperationHistory.java:513)
+	at com.adobe.flexbuilder.editors.derived.ui.navigator.FlexResourceDeleteAction$2.run(FlexResourceDeleteAction.java:985)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 2 org.eclipse.core.filesystem 4 273 2014-08-22 18:07:59.716
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:07:59.716
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+
+!ENTRY org.eclipse.core.resources 4 273 2014-08-22 18:08:22.913
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:08:22.913
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.ui.ide.undo.WorkspaceUndoUtil.delete(WorkspaceUndoUtil.java:811)
+	at org.eclipse.ui.ide.undo.WorkspaceUndoUtil.delete(WorkspaceUndoUtil.java:191)
+	at org.eclipse.ui.ide.undo.AbstractResourcesOperation.delete(AbstractResourcesOperation.java:119)
+	at org.eclipse.ui.ide.undo.DeleteResourcesOperation.doExecute(DeleteResourcesOperation.java:67)
+	at org.eclipse.ui.ide.undo.AbstractWorkspaceOperation$1.run(AbstractWorkspaceOperation.java:206)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.ide.undo.AbstractWorkspaceOperation.execute(AbstractWorkspaceOperation.java:204)
+	at org.eclipse.core.commands.operations.DefaultOperationHistory.execute(DefaultOperationHistory.java:513)
+	at com.adobe.flexbuilder.editors.derived.ui.navigator.FlexResourceDeleteAction$2.run(FlexResourceDeleteAction.java:985)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 2 org.eclipse.core.filesystem 4 273 2014-08-22 18:08:22.913
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:08:22.913
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+
+!ENTRY org.eclipse.core.filesystem 4 272 2014-08-22 18:08:40.106
+!MESSAGE 未能移动：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.filesystem.provider.FileStore.move(FileStore.java:411)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.move(LocalFile.java:352)
+	at org.eclipse.core.internal.localstore.BlobStore.addBlob(BlobStore.java:54)
+	at org.eclipse.core.internal.localstore.HistoryStore2.addState(HistoryStore2.java:92)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.recursiveKeepHistory(DeleteVisitor.java:118)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.recursiveKeepHistory(DeleteVisitor.java:113)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.delete(DeleteVisitor.java:57)
+	at org.eclipse.core.internal.localstore.DeleteVisitor.visit(DeleteVisitor.java:150)
+	at org.eclipse.core.internal.localstore.UnifiedTree.accept(UnifiedTree.java:110)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:349)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:352)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:798)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1935)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.ui.ide.undo.WorkspaceUndoUtil.delete(WorkspaceUndoUtil.java:811)
+	at org.eclipse.ui.ide.undo.WorkspaceUndoUtil.delete(WorkspaceUndoUtil.java:191)
+	at org.eclipse.ui.ide.undo.AbstractResourcesOperation.delete(AbstractResourcesOperation.java:119)
+	at org.eclipse.ui.ide.undo.DeleteResourcesOperation.doExecute(DeleteResourcesOperation.java:67)
+	at org.eclipse.ui.ide.undo.AbstractWorkspaceOperation$1.run(AbstractWorkspaceOperation.java:206)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.ide.undo.AbstractWorkspaceOperation.execute(AbstractWorkspaceOperation.java:204)
+	at org.eclipse.core.commands.operations.DefaultOperationHistory.execute(DefaultOperationHistory.java:513)
+	at com.adobe.flexbuilder.editors.derived.ui.navigator.FlexResourceDeleteAction$2.run(FlexResourceDeleteAction.java:985)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 1 org.eclipse.core.filesystem 4 273 2014-08-22 18:08:40.106
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 2 org.eclipse.core.filesystem 4 273 2014-08-22 18:08:40.106
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+
+!ENTRY org.eclipse.core.resources 4 273 2014-08-22 18:08:40.117
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:08:40.117
+!MESSAGE 不能删除“/TestApp/bin-debug”。
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: 删除资源时遇到问题。
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.delete(FileSystemResourceManager.java:352)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFolder(ResourceTree.java:352)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFolder(ResourceTree.java:798)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1935)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.ui.ide.undo.WorkspaceUndoUtil.delete(WorkspaceUndoUtil.java:811)
+	at org.eclipse.ui.ide.undo.WorkspaceUndoUtil.delete(WorkspaceUndoUtil.java:191)
+	at org.eclipse.ui.ide.undo.AbstractResourcesOperation.delete(AbstractResourcesOperation.java:119)
+	at org.eclipse.ui.ide.undo.DeleteResourcesOperation.doExecute(DeleteResourcesOperation.java:67)
+	at org.eclipse.ui.ide.undo.AbstractWorkspaceOperation$1.run(AbstractWorkspaceOperation.java:206)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.ide.undo.AbstractWorkspaceOperation.execute(AbstractWorkspaceOperation.java:204)
+	at org.eclipse.core.commands.operations.DefaultOperationHistory.execute(DefaultOperationHistory.java:513)
+	at com.adobe.flexbuilder.editors.derived.ui.navigator.FlexResourceDeleteAction$2.run(FlexResourceDeleteAction.java:985)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 删除文件时遇到了问题。
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug。
+!SUBENTRY 2 org.eclipse.core.resources 4 273 2014-08-22 18:08:40.117
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:08:40.117
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2014-08-22 18:08:40.117
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 4 org.eclipse.core.filesystem 4 273 2014-08-22 18:08:40.117
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug。
+
+!ENTRY org.eclipse.core.resources 4 273 2014-08-22 18:09:01.039
+!MESSAGE 删除资源时遇到问题。
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2014-08-22 18:09:01.039
+!MESSAGE 不能删除“D:\phantom\workspace\TestApp\bin-debug\TestApp.swf”。
+!STACK 1
+org.eclipse.core.runtime.CoreException: 删除文件时遇到了问题。
+	at org.eclipse.core.internal.filesystem.local.LocalFile.delete(LocalFile.java:125)
+	at org.eclipse.core.internal.resources.ResourceTree.internalDeleteFile(ResourceTree.java:304)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteFile(ResourceTree.java:785)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1931)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:780)
+	at org.eclipse.ui.ide.undo.WorkspaceUndoUtil.delete(WorkspaceUndoUtil.java:811)
+	at org.eclipse.ui.ide.undo.WorkspaceUndoUtil.delete(WorkspaceUndoUtil.java:191)
+	at org.eclipse.ui.ide.undo.AbstractResourcesOperation.delete(AbstractResourcesOperation.java:119)
+	at org.eclipse.ui.ide.undo.DeleteResourcesOperation.doExecute(DeleteResourcesOperation.java:67)
+	at org.eclipse.ui.ide.undo.AbstractWorkspaceOperation$1.run(AbstractWorkspaceOperation.java:206)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2344)
+	at org.eclipse.ui.ide.undo.AbstractWorkspaceOperation.execute(AbstractWorkspaceOperation.java:204)
+	at org.eclipse.core.commands.operations.DefaultOperationHistory.execute(DefaultOperationHistory.java:513)
+	at com.adobe.flexbuilder.editors.derived.ui.navigator.FlexResourceDeleteAction$2.run(FlexResourceDeleteAction.java:985)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SUBENTRY 2 org.eclipse.core.filesystem 4 273 2014-08-22 18:09:01.039
+!MESSAGE 删除文件时遇到了问题。
+!SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:09:01.039
+!MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。

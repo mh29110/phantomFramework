@@ -1,0 +1,12 @@
+package phantom.core.controls
+{
+	import phantom.core.components.m_skinAdapter;
+
+	public class Button extends m_skinAdapter
+	{
+		public function Button(skin:*)
+		{
+			super(skin);
+		}
+	}
+}
