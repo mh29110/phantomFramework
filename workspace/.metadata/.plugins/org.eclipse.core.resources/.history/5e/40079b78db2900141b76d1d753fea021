@@ -1,4 +1,0 @@
-package phantom.core.ns
-{
-	public namespace PhantomInternalNamespace = "";
-}

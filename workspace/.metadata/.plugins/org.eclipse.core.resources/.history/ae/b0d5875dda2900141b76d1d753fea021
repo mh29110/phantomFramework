@@ -1,9 +1,0 @@
-package phantom.core.controls
-{
-	public class Button
-	{
-		public function Button()
-		{
-		}
-	}
-}
