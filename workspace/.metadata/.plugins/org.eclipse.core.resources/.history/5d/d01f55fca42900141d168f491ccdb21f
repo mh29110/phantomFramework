@@ -1,9 +1,0 @@
-package phantom.core
-{
-	public class sadf
-	{
-		public function sadf()
-		{
-		}
-	}
-}

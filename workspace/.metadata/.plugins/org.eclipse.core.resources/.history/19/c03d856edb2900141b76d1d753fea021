@@ -1,9 +1,0 @@
-package phantom.core.ns
-{
-	public class PhantomNamespace
-	{
-		public function PhantomNamespace()
-		{
-		}
-	}
-}
