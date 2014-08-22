@@ -2210,3 +2210,89 @@ Contains: 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
 !MESSAGE 删除文件时遇到了问题。
 !SUBENTRY 3 org.eclipse.core.filesystem 4 273 2014-08-22 18:09:01.039
 !MESSAGE 未能删除：D:\phantom\workspace\TestApp\bin-debug\TestApp.swf。
+!SESSION 2014-08-22 19:15:46.504 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=zh_CN
+Framework arguments:  -keyring /Users/phantom/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -data /Users/phantom/Documents/github/phantomFramework/workspace -keyring /Users/phantom/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-08-22 19:15:50.421
+!MESSAGE System property http.nonProxyHosts has been set to local„ÄÅ169.254/16|*.local„ÄÅ169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.jface 2 0 2014-08-22 19:17:11.513
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-08-22 19:17:11.514
+!MESSAGE A conflict occurred for COMMAND+SHIFT+F12:
+Binding(COMMAND+SHIFT+F12,
+	ParameterizedCommand(Command(org.eclipse.mylyn.tasks.ui.command.searchForTask,Search Repository for Task,
+		,
+		Category(org.eclipse.ui.category.navigate,浏览,null,true),
+		org.eclipse.mylyn.internal.tasks.ui.search.SearchTaskHandler,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(COMMAND+SHIFT+F12,
+	ParameterizedCommand(Command(com.adobe.flexbuilder.flashbridge.export.publish.movie,发布影片,
+		在 Flash Professional 中发布,
+		Category(com.adobe.flexbuilder.flashbridge.flashProCommands,Flash Professional,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+
+!ENTRY org.eclipse.jface 2 0 2014-08-22 19:18:12.790
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-08-22 19:18:12.790
+!MESSAGE A conflict occurred for COMMAND+G:
+Binding(COMMAND+G,
+	ParameterizedCommand(Command(com.adobe.flexbuilder.as.editor.find.all.declarations.in.workspace,在工作空间中查找所有声明,
+		,
+		Category(com.adobe.flexbuilder.editorcore.navigation.category,导航,null,true),
+		LegacyHandlerWrapper(ActionHandler(action=com.adobe.flexbuilder.as.editor.ui.actions.FindAllDeclarationsAction@22722a97)),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.adobe.flexide.editorcore.flexEditorScope,,,system)
+Binding(COMMAND+G,
+	ParameterizedCommand(Command(com.adobe.flexbuilder.as.editor.find.all.declarations.in.workspace,在工作空间中查找所有声明,
+		,
+		Category(com.adobe.flexbuilder.editorcore.navigation.category,导航,null,true),
+		LegacyHandlerWrapper(ActionHandler(action=com.adobe.flexbuilder.as.editor.ui.actions.FindAllDeclarationsAction@22722a97)),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.adobe.flexbuilder.as.editor.context.packageexplorer,,,system)
+Binding(COMMAND+G,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.search.declarations.in.workspace,工作空间中的声明,
+		在工作空间中搜索对所选元素的声明,
+		Category(org.eclipse.search.ui.category.search,搜索,搜索命令类别,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-08-22 19:18:12.790
+!MESSAGE A conflict occurred for COMMAND+SHIFT+G:
+Binding(COMMAND+SHIFT+G,
+	ParameterizedCommand(Command(com.adobe.flexbuilder.as.editor.find.all.references.in.workspace,在工作空间中查找所有引用,
+		,
+		Category(com.adobe.flexbuilder.editorcore.navigation.category,导航,null,true),
+		LegacyHandlerWrapper(ActionHandler(action=com.adobe.flexbuilder.as.editor.ui.actions.FindAllReferencesAction@59e23a35)),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.adobe.flexide.editorcore.flexEditorScope,,,system)
+Binding(COMMAND+SHIFT+G,
+	ParameterizedCommand(Command(com.adobe.flexbuilder.as.editor.find.all.references.in.workspace,在工作空间中查找所有引用,
+		,
+		Category(com.adobe.flexbuilder.editorcore.navigation.category,导航,null,true),
+		LegacyHandlerWrapper(ActionHandler(action=com.adobe.flexbuilder.as.editor.ui.actions.FindAllReferencesAction@59e23a35)),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	com.adobe.flexbuilder.as.editor.context.packageexplorer,,,system)
+Binding(COMMAND+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace,工作空间中的引用,
+		在工作空间中搜索对所选元素的引用,
+		Category(org.eclipse.search.ui.category.search,搜索,搜索命令类别,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
