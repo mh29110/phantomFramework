@@ -1,0 +1,23 @@
+package
+{
+	import flash.display.Sprite;
+	
+	import phantom.core.handlers.Handler;
+	
+	/**
+	 * @author liphantomjia@gmail.com
+	 * 
+	 */
+	public class TestApp extends Sprite
+	{
+		public function TestApp()
+		{
+			App.init(this);
+			App.loader.loadAssets(["assets/majorscreen.swf"],new Handler(onComplete));
+		}
+		private function onComplete():void
+		{
+			
+		}
+	}
+}

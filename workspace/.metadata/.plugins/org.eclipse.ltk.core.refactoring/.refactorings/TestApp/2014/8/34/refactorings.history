@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="将资源“TestApp/bin-debug/assets/defeat_tip_001.png”重命名为“001.png”" description="重命名资源“defeat_tip_001.png”" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="bin-debug/assets/defeat_tip_001.png" name="001.png" stamp="1408679979695" updateReferences="true"/>
+</session>
