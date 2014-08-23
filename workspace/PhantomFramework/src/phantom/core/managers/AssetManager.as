@@ -1,10 +1,13 @@
 package phantom.core.managers {
 	import flash.display.BitmapData;
 	import flash.system.ApplicationDomain;
+	
+	import phantom.core.interfaces.IManager;
 	import phantom.core.utils.BitmapUtils;
 	
 	/**资源管理器*/
-	public class AssetManager {
+	public class AssetManager implements IManager
+	{
 		private var _bmdMap:Object = {};
 		private var _clipsMap:Object = {};
 		private var _domain:ApplicationDomain = ApplicationDomain.currentDomain;

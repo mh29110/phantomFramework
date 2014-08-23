@@ -3,12 +3,14 @@ package phantom.core.managers {
 	import flash.events.EventDispatcher;
 	
 	import phantom.core.handlers.Handler;
+	import phantom.core.interfaces.IManager;
 	
 	/**队列全部加载后触发*/
 	[Event(name="complete",type="flash.events.Event")]
 	
 	/**加载管理器(单队列顺序加载)*/
-	public class LoaderManager extends EventDispatcher {
+	public class LoaderManager extends EventDispatcher  implements IManager
+	{
 		private var _resInfos:Array = [];
 		private var _resLoader:ResLoader = new ResLoader();
 		private var _isLoading:Boolean;

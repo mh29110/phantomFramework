@@ -9,10 +9,14 @@ package phantom.core.managers {
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.ui.Keyboard;
+	
+	import phantom.core.consts.ManagerName;
+	import phantom.core.interfaces.IManager;
 	import phantom.core.utils.ObjectUtils;
 	
 	/**日志管理器*/
-	public class LogManager extends Sprite {
+	public class LogManager extends Sprite  implements IManager
+	{
 		private var _msgs:Array = [];
 		private var _box:Sprite;
 		private var _textField:TextField;
@@ -97,7 +101,7 @@ package phantom.core.managers {
 		
 		private function onFilterKeyDown(e:KeyboardEvent):void {
 			if (e.keyCode == Keyboard.ENTER) {
-				AppCenter.stage.focus = _box;
+				StageManager(AppCenter.instance.getManager(ManagerName.STAGE)).stage.focus = _box;
 			}
 		}
 		

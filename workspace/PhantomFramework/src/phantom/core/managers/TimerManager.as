@@ -4,8 +4,11 @@ package phantom.core.managers {
 	import flash.utils.Dictionary;
 	import flash.utils.getTimer;
 	
+	import phantom.core.interfaces.IManager;
+	
 	/**时钟管理器[同一函数多次计时，默认会被后者覆盖,delay小于1会立即执行]*/
-	public class TimerManager {
+	public class TimerManager implements IManager
+	{
 		private var _shape:Shape = new Shape();
 		private var _pool:Vector.<TimerHandler> = new Vector.<TimerHandler>();
 		private var _handlers:Dictionary = new Dictionary();

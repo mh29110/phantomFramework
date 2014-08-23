@@ -1,55 +1,72 @@
 package {
-	import flash.display.Sprite;
-	import flash.display.Stage;
-	import flash.display.StageAlign;
-	import flash.display.StageScaleMode;
+	import flash.utils.Dictionary;
 	
+	import phantom.core.consts.ManagerName;
+	import phantom.core.interfaces.IManager;
 	import phantom.core.managers.AssetManager;
 	import phantom.core.managers.LoaderManager;
 	import phantom.core.managers.LogManager;
 	import phantom.core.managers.TimerManager;
 	
-	/**全局引用入口*/
+	/**
+	 * 
+	 * @author phantom
+	 * 
+	 */
 	public class AppCenter {
-		/**全局stage引用*/
-		public static var stage:Stage;
-		public function init(main:Sprite):void {
-			stage = main.stage;
-			stage.frameRate = GlobalConfig.GAME_FPS;
-			stage.scaleMode = StageScaleMode.NO_SCALE;
-			stage.align = StageAlign.TOP_LEFT;
-			stage.stageFocusRect = false;
-			stage.tabChildren = false;
-			
-			//覆盖配置
-			var gameVars:Object = stage.loaderInfo.parameters;
-			if (gameVars != null) {
-				for (var s:String in gameVars) {
-					if (GlobalConfig[s] != null) {
-						GlobalConfig[s] = gameVars[s];
-					}
-				}
-			}
-			installManagers();
-//			stage.addChild(dialog);
-//			stage.addChild(tip);
-			stage.addChild(log);
-		}
-		
-		private function installManagers():void
+		private var _managerMap:Dictionary;
+		public function AppCenter()
 		{
+			_managerMap = new Dictionary();
+
 			  _asset	= new AssetManager();
 			  _loader	= new LoaderManager();
 			  _timer 	= new TimerManager();
 			  _log 		= new LogManager();
+			  addManager(_asset, ManagerName.ASSET);
+			  addManager(_loader, ManagerName.LOADER);
+			  addManager(_timer, ManagerName.TIMER);
+			  addManager(_log, ManagerName.LOG);
 		}
+		/**
+		 * 添加管理器 
+		 * @param manager  IManager
+		 * @param name 
+		 * @see phantom.core.ManagerName
+		 * 
+		 */
+		public function addManager(manager:IManager,name:String):void 
+		{
+			if(name!=null && name !=""  && _managerMap[name] != null)
+			{
+				throw new Error("no id or  repetitive error");
+			}
+			else
+			{
+				_managerMap[name] = manager;
+			}
+		}
+		
+		/**
+		 * 获取管理器 
+		 * @param id
+		 * @return 
+		 * 
+		 */
+		public function getManager(name:String):IManager
+		{
+			return  IManager(_managerMap[name]);
+		}
+		
 		
 		/**获得资源路径(此处可以加上资源版本控制)*/
 		public static function getResPath(url:String):String {
 			return /^http:\/\//g.test(url) ? url : GlobalConfig.resPath + url;
 		}
 		
+//--------   常见的管理器---getter /setter-----以成员变量的形式提取----	
 		private static var _instance:AppCenter;
+
 
 		private var _log:LogManager;
 
@@ -90,6 +107,7 @@ package {
 		{
 			return _log;
 		}
+
 		//		/**渲染管理器*/
 		//		private static var _render:RenderManager = new RenderManager();
 		//		/**对话框管理器*/

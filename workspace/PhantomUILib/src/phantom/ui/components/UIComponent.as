@@ -1,4 +1,4 @@
-package phantom.core.components
+package phantom.ui.components
 {
 	public class UIComponent
 	{

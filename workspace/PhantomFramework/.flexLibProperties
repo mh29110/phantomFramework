@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
-  <includeClasses/>
+  <includeClasses>
+    <classEntry path="phantom.core.interfaces.IDispose"/>
+    <classEntry path="phantom.core.interfaces.IManager"/>
+    <classEntry path="phantom.core.managers.StageManager"/>
+    <classEntry path="phantom.core.consts.ManagerName"/>
+    <classEntry path="phantom.core.interfaces.conn.IProtocol"/>
+    <classEntry path="phantom.core.socket.dataPackets.SocketPacket"/>
+  </includeClasses>
   <includeResources/>
   <namespaceManifests/>
 </flexLibProperties>

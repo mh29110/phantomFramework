@@ -1,4 +1,4 @@
-package phantom.core.components
+package phantom.ui.components
 {
     import flash.display.DisplayObject;
     import flash.display.DisplayObjectContainer;
@@ -14,12 +14,13 @@ package phantom.core.components
     import flash.text.TextFormat;
     import flash.utils.getQualifiedClassName;
     
+    import phantom.core.interfaces.IDispose;
     import phantom.core.ns.PhantomInternalNamespace;
     
     
 	use namespace PhantomInternalNamespace;
-    public class skinAdapter extends EventDispatcher
-    {
+    public class skinAdapter extends EventDispatcher implements IDispose
+	{
         private var _eventList:Vector.<String>;
         private var _eventFunctionList:Vector.<Function>;
         private var _eventUseCaptureList:Vector.<Boolean>;
