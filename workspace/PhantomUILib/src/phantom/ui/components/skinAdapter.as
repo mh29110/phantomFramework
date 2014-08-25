@@ -133,7 +133,7 @@ package phantom.ui.components
             _eventUseCaptureList.splice(index,1);
         }
         
-        protected function initialize(skin:*):void
+        public function initialize(skin:*):void
         {
             if(!skin)
             {
@@ -549,5 +549,5 @@ package phantom.ui.components
         {
             view.filters = v;
         }
-    }
+	}
 }

@@ -7,6 +7,7 @@ package phantom.core.consts
                 public static const LOG:String 						= "log manager";
                 public static const ASSET:String  					= "asset manager";
                 public static const TIMER:String  					= "timer manager";
-			   public static const NETWORK:String 				= "network manager ";
+			    public static const NETWORK:String 					= "network manager ";
+			    public static const UIASSET_LINKER:String         	= "ui asset linker";
 	}
 }

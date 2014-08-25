@@ -7,6 +7,10 @@ package phantom.ui.flash
     import flash.utils.getDefinitionByName;
     
     import phantom.core.handlers.Handler;
+    import phantom.interfaces.IContainer;
+    import phantom.ui.components.containerBase;
+    import phantom.ui.components.skinAdapter;
+    import phantom.ui.screen.ScreenAdapter;
     
     
     [Event(name="complete", type="flash.events.Event")]
@@ -52,13 +56,14 @@ package phantom.ui.flash
             dispatchEvent(new Event(Event.COMPLETE));
         }
         
-        public function getUIController(uiDefine:String = null, controllerDefine:Class = null):void //IContainer
+        public function getUIController(uiDefine:String = null, controllerDefine:Class = null):IContainer
         {
             if(!uiDefine)
             {
                 uiDefine = "screen.view." + _uiDefine;
             }
             
+            _defaultControllerDefine = ScreenAdapter;
             if(!controllerDefine)
             {
                 controllerDefine = _defaultControllerDefine;
@@ -68,17 +73,17 @@ package phantom.ui.flash
             {
                 var skinClass:Class = getDefinitionByName(uiDefine) as Class;
                 var skin:MovieClip = new skinClass() as MovieClip;
-//                var controller:Container = new controllerDefine() as Container;
-//                
-//                if(skin && controller)
-//                {
-//                    controller.initialize(skin);
-//                    return controller;
-//                }
+                var adapter:containerBase = new controllerDefine() as containerBase;
+
+                if(skin && adapter)
+                {
+					adapter.initialize(skin);
+                    return adapter;
+                }
             }
-//            return null;
+            return null;
         }
-        
+		
         private function excuteCallback(callback:Function):void
         {
             callback.apply(null,[this]);

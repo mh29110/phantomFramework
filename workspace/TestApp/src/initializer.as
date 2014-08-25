@@ -1,25 +1,31 @@
 package 
 {
+    import flash.display.DisplayObject;
     import flash.display.Loader;
+    import flash.display.LoaderInfo;
     import flash.display.Sprite;
     import flash.display.Stage;
     import flash.events.Event;
+    import flash.filters.DropShadowFilter;
     import flash.system.Security;
     import flash.text.TextField;
     import flash.text.TextFieldAutoSize;
+    import flash.text.TextFormat;
     import flash.utils.getTimer;
     
     import phantom.core.consts.ManagerName;
+    import phantom.core.handlers.Handler;
     import phantom.core.managers.StageManager;
     import phantom.core.socket.NetworkManager;
     import phantom.core.socket.conn.ConnectionType;
     import phantom.core.socket.dataPackets.SocketPacket;
+    import phantom.ui.flash.UIAssetLinker;
     
     import splash.CGMediaPlayer;
     import splash.VersionSprite;
     
     [SWF(width="1248", height="648", frameRate="60", backgroundColor="0x0")]
-    public class initializer extends VersionSprite
+    public class Initializer extends VersionSprite
     {
         /**
          * 上一帧渲染的时间戳
@@ -32,10 +38,14 @@ package
         private var _logoLoader:Loader;
         
         private var _cgPlayer:CGMediaPlayer;
-        /**
-         * 构造
-         */        
-        public function initializer()
+
+		/**
+		 * 调用的真实游戏场景的类名称. 
+		 */
+		private const GAME_STAGE_NAME:String = "GameStage";
+
+		private var appCenter:AppCenter;
+        public function Initializer()
         {
             initialize();
         }
@@ -50,12 +60,13 @@ package
             
             
             //注册服务
-            var app:AppCenter = AppCenter.instance;
+            appCenter = AppCenter.instance;
+			
+			var uiAssetLinker:UIAssetLinker = new UIAssetLinker();
+			appCenter.addManager(uiAssetLinker,ManagerName.UIASSET_LINKER);
             
-//            var loadServ:LoadService = app.getService(ServiceGuids.LOAD_SERVICE) as LoadService;
-//            
-//            app.addService(ServiceGuids.RESOURCE_SERVICE, new ResourceService());
-//            
+			var network:NetworkManager = new NetworkManager();                
+			appCenter.addManager(network,ManagerName.NETWORK);
 //            var networkServ:NetworkService = new NetworkService();
 //            networkServ.addEventListener(NetworkServiceEvent.SERVER_DISCONNECTED, onServerDisconnected);
 //            app.addService(ServiceGuids.NETWORK_SERVICE, networkServ);
@@ -71,7 +82,7 @@ package
 //            _busyIndicateServ = new BusyIndicateService();
 //            app.addService(ServiceGuids.BUSY_INDICATE_SERVICE, _busyIndicateServ);
             
-            var stageServ:StageManager = app.getManager(ManagerName.STAGE) as StageManager;
+            var stageServ:StageManager = appCenter.getManager(ManagerName.STAGE) as StageManager;
             var stage:Stage = stageServ.stage;
             stage.addEventListener(Event.ENTER_FRAME, onTickHandle);
             stage.addEventListener(Event.RESIZE, onResize, false, int.MAX_VALUE);
@@ -81,24 +92,23 @@ package
             _lastRenderTimeStamp = new Date().time;
             _lastRenderTimeStampLocal = getTimer();
 			
+			
+			
+			//before to connect the server ,load all assets and configs, plz.
 			// network init
 			prepareNetworkServ();
 		
 			//create character
 			
-			//load config and assets for real game content 
 			
-			
-			
-			
-			
-			
-			app.timer.doOnce(1000,function():void
+			appCenter.timer.doOnce(1000,function():void
 			{
         		   	dispatchEvent( new Event("initialize.readyToShow"));//必须延时调用,否则preLoader接受不到.
 			});
 			
 			test();
+			
+			visible = true;
 			
         }
 		
@@ -129,35 +139,87 @@ package
 
         private function prepareNetworkServ():void
         {
-                //initGameContent();  战报模式
-			
-		     var app:AppCenter = AppCenter.instance;		
-	         var network:NetworkManager = new NetworkManager();                
-			 app.addManager(network,ManagerName.NETWORK);
+			var network:NetworkManager = appCenter.getManager(ManagerName.NETWORK) as NetworkManager;
 			network.createSocket(ConnectionType.GAME,GlobalConfig.host,GlobalConfig.port);
 			
 			//when connected then do this ...>
 			var packet:SocketPacket = new SocketPacket();
 			network.send(packet);
 			
+			// to @onServerConnected() ->   	
+			initLoadGameStage();	
         }
- 
-        
-        private function onServerConnected(e:Event):void
-        {
-            var serv:AppCenter = AppCenter.instance;
-     
-            var globalParams:Object = topGlobal
-            var needFCM:String = globalParams.needFCM;
-            var loginName:String = globalParams.loginName;
-            var loginSource:String = globalParams.source;
-            var loginPlatformId:String = globalParams.platform;
-            var registerStat:String = globalParams.registerStat;
-            var serverId:String = globalParams.serverId;
-            
+		
+		private function onServerConnected(e:Event):void
+		{
+			var globalParams:Object = topGlobal
+			var needFCM:String = globalParams.needFCM;
+			var loginName:String = globalParams.loginName;
+			var loginSource:String = globalParams.source;
+			var loginPlatformId:String = globalParams.platform;
+			var registerStat:String = globalParams.registerStat;
+			var serverId:String = globalParams.serverId;
+			
 			//login todo 
-        }
-     
+			
+			//login complete to @initLoadGameStage
+		
+		}
+		
+		private function initLoadGameStage():void
+		{
+			appCenter.loader.loadBYTE( GAME_STAGE_NAME+".swf?" + currentVersion, new Handler(onGameLoaded),new Handler( onGameLoadProgress),new Handler( onGameLoadError));
+		} 
+        
+		private function onGameLoadError(content:*):void
+		{
+			var _error:TextField = new TextField();
+			_error.text = "加载游戏失败,请按'F5'刷新重试";
+			_error.mouseEnabled = false;
+			
+			var tf:TextFormat = new TextFormat();
+			tf.size = 18;
+			tf.color= 0xffffff;
+			tf.bold =true;
+			tf.font="Arial";
+			_error.setTextFormat(tf);
+			_error.autoSize = TextFieldAutoSize.LEFT;
+			_error.x = (stage.stageWidth-_error.textWidth)>>1;
+			_error.y = 50+(stage.stageHeight-_error.textHeight)>>1;
+			_error.filters = [new DropShadowFilter(0,0,0,1,3,3,8)];
+			addChild(_error);
+			appCenter.loader.clearResLoaded( GAME_STAGE_NAME+".swf?" + currentVersion);
+		}
+		
+		private function onGameLoadProgress(value:Number):void
+		{
+			var percent:int = int(value*100);
+			//show busy sign
+		}
+		
+		private function onGameLoaded(data:*):void
+		{
+			// hide busy sign 
+			if(data == null)
+			{
+				onGameLoadError(1);
+				return;
+			}
+			
+			var gameLoader:Loader = new Loader();
+			gameLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, onGamestageLoaded);
+			gameLoader.loadBytes(data);
+		}
+		
+		private function onGamestageLoaded(e:Event):void
+		{
+			var loaderInfo:LoaderInfo = e.currentTarget as LoaderInfo;
+			loaderInfo.removeEventListener(Event.COMPLETE, onGamestageLoaded);
+			
+			var gameStage:DisplayObject = loaderInfo.loader.content;
+			addChild(gameStage);
+		}		
+  
         /**
          * 播放开场动画，回调创建人物界面 
          * 
@@ -188,7 +250,7 @@ package
    
 		private function onResize(e:Event = null):void
         {
-            var stageServ:StageManager = AppCenter.instance.getManager(ManagerName.STAGE) as StageManager;
+            var stageServ:StageManager = appCenter.getManager(ManagerName.STAGE) as StageManager;
             
             if(stageServ == null)
             {

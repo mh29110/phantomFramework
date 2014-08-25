@@ -9,7 +9,7 @@ package {
 	import phantom.core.managers.TimerManager;
 	
 	/**
-	 * 
+	 * 管理器中心, 提供服务,但不需要抛出事件.   // 区别于IMediator
 	 * @author phantom
 	 * 
 	 */

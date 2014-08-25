@@ -23,6 +23,7 @@ package splash
 		{
 			super();
 			addVersionMenu();
+			visible = false;//only true when the content ready.
 		}
 		
 		private function addVersionMenu():void

@@ -1,29 +1,26 @@
 package phantom.ui.flash
 {
-    public class UIAssetLinker 
+	import phantom.core.interfaces.IManager;
+
+    public class UIAssetLinker implements IManager
     {
         private var _uiAssetDefine:Vector.<String>;
-        private var _uiMediatorName:Vector.<String>;
         private var _uiAssetNodeList:Vector.<UIAssetNode>;
-        private var _commonAssetNode:UIAssetNode;
-        private var _tipsAssetNode:UIAssetNode;
         
         public function UIAssetLinker()
         {
             _uiAssetDefine = new Vector.<String>();
-            _uiMediatorName = new Vector.<String>();
             _uiAssetNodeList = new Vector.<UIAssetNode>();
         }
         
         
-        public function addUI(uiDefine:String, controllerDefine:Class, uiMedaitorName:String):void
+        public function addUI(uiDefine:String, controllerDefine:Class):void
         {
             var index:int = _uiAssetDefine.indexOf(uiDefine);
             var node:UIAssetNode;
             if(index<0)
             {
                 _uiAssetDefine.push(uiDefine);
-                _uiMediatorName.push(uiMedaitorName);
                 node = new UIAssetNode(uiDefine);
                 node.defaultControllerDefine = controllerDefine;
                 _uiAssetNodeList.push(node);
@@ -41,6 +38,5 @@ package phantom.ui.flash
                 node.startLoad();
             }
         }
-        
     }
 }
