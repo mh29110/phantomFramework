@@ -9,7 +9,6 @@ package phantom.ui.flash
     import phantom.core.handlers.Handler;
     import phantom.interfaces.IContainer;
     import phantom.ui.components.containerBase;
-    import phantom.ui.components.skinAdapter;
     import phantom.ui.screen.ScreenAdapter;
     
     
@@ -29,7 +28,7 @@ package phantom.ui.flash
         
         public function startLoad():void
         {
-			AppCenter.instance.loader.loadSWF(_uiDefine,new Handler(onAssetLoaded));
+				AppCenter.instance.loader.loadSWF("assets/"+_uiDefine+".swf",new Handler(onAssetLoaded));
         }
         
         public function appendCallback(f:Function):void

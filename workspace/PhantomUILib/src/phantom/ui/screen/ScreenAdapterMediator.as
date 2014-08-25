@@ -3,7 +3,6 @@ package phantom.ui.screen
     import org.puremvc.as3.patterns.mediator.Mediator;
     
     import phantom.core.consts.ManagerName;
-    import phantom.core.handlers.Handler;
     import phantom.core.managers.LoaderManager;
     import phantom.core.managers.StageManager;
     import phantom.interfaces.IScreenAdapater;
@@ -161,7 +160,8 @@ package phantom.ui.screen
                 
                 _onInitScreenAssets = true;
                 
-				loader.loadSWF("majorscreen.swf",new Handler(onScreenDependsAssetsLoaded));
+//				loader.loadSWF("assets/majorscreen.swf",new Handler(onScreenDependsAssetsLoaded));
+				onScreenDependsAssetsLoaded(1);
             }
         }
         

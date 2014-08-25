@@ -28,7 +28,7 @@ package
 	[SWF(width="1248", height="648", backgroundColor="0x0")]
 	public class PreLoader extends VersionSprite
 	{
-		[Embed(source="../assets/loadingUnderAssets.swf", mimeType="application/octet-stream")]
+		[Embed(source="../bin-debug/assets/loadingUnderAssets.swf", mimeType="application/octet-stream")]
 		private static var _loadingUnder:Class;
 		
 		/**

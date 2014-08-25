@@ -6,9 +6,6 @@ package
     import flash.events.UncaughtErrorEvent;
     import flash.external.ExternalInterface;
     import flash.system.Security;
-    import flash.text.TextField;
-    import flash.text.TextFieldAutoSize;
-    import flash.utils.getQualifiedClassName;
     
     import commands.consts.CommandListSystem;
     import commands.system.GameEnterCommand;
