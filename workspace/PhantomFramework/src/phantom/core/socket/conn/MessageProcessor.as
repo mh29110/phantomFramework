@@ -9,8 +9,6 @@ public class MessageProcessor
 {
 	/**消息ID描述的长度(一个ushort)*/
 	private static const MESSAGE_ID_LENGTH:uint = 2;
-	private static const BYTEARRAY_PARAM:String = "byteArray";
-	private var _connectionType:uint = 0;
 	private var _type:String = "";
 	/**
 	 * 消息
@@ -41,10 +39,19 @@ public class MessageProcessor
 				//消息前包个short头
 				var data:ByteArray = this._message.toBytes();
 				var bytes:ByteArray = new ByteArray();
-				bytes.endian = Endian.LITTLE_ENDIAN;// todo
-				bytes.writeShort(data.length + MESSAGE_ID_LENGTH);
-				bytes.writeShort(this._message.getID());
-				bytes.writeBytes(data);
+
+//				bytes.endian = Endian.LITTLE_ENDIAN;// todo
+//				bytes.writeUnsignedInt(1);
+//				bytes.writeUnsignedInt(_message.getID());
+//				bytes.writeShort(data.length + MESSAGE_ID_LENGTH);
+//				bytes.writeBytes(data);
+				
+				
+               	bytes.endian = Endian.LITTLE_ENDIAN;// todo
+               	bytes.writeUnsignedInt(1);
+               	bytes.writeInt(_message.getID());
+               	bytes.writeUTFBytes("mac");
+               	bytes.writeBytes(data);
 				return bytes;
 				break;
 			case MessageDataType.HTTP:
