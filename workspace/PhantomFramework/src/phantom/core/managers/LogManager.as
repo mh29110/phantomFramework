@@ -13,6 +13,7 @@ package phantom.core.managers {
 	import phantom.core.consts.ManagerName;
 	import phantom.core.interfaces.IManager;
 	import phantom.core.utils.ObjectUtils;
+	import phantom.core.managers.render.StageManager;
 	
 	/**日志管理器*/
 	public class LogManager extends Sprite  implements IManager

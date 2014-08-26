@@ -9,5 +9,6 @@ package phantom.core.consts
                 public static const TIMER:String  					= "timer manager";
 			    public static const NETWORK:String 					= "network manager ";
 			    public static const UIASSET_LINKER:String         	= "ui asset linker";
+			    public static const TIP:String 						= "tip manager";
 	}
 }

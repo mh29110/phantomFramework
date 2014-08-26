@@ -1,4 +1,4 @@
-package phantom.core.managers
+package phantom.core.managers.render
 {
 	import flash.display.Sprite;
 	import flash.display.Stage;
@@ -30,6 +30,10 @@ package phantom.core.managers
 					}
 				}
 			}
+			
+			//最好移动到专门的舞台容器管理器中.
+			_stage.addChild(AppCenter.instance.log);
+			_stage.addChild(AppCenter.instance.tip);
 		}
 		
 		public function get stage():Stage

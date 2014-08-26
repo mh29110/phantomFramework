@@ -4,7 +4,7 @@ package phantom.ui.screen
     
     import phantom.core.consts.ManagerName;
     import phantom.core.managers.LoaderManager;
-    import phantom.core.managers.StageManager;
+    import phantom.core.managers.render.StageManager;
     import phantom.interfaces.IScreenAdapater;
     import phantom.interfaces.IScreenAdapterMediator;
     import phantom.interfaces.ISkinAdapter;

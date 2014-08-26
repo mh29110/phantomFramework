@@ -1,0 +1,19 @@
+* phantom framework
+** UILib
+*** uiAssetLinker
+*** screen and mediator   
+*** component adapter base & container base
+** framework
+*** managers
+**** loader && multiLoader
+**** asset && render 
+**** tipManager
+**** timerManager
+** main
+*** preloader ,initer and gameStage loaded.
+*** facade install
+*** start and init command
+** networkLib
+*** socket manager
+*** process socket packet
+*** TODO use protobuf 

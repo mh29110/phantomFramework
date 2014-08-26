@@ -7,16 +7,17 @@ package phantom.ui.components
     import flash.display.Sprite;
     import flash.events.Event;
     import flash.events.EventDispatcher;
+    import flash.events.MouseEvent;
     import flash.geom.Point;
-    import flash.system.ApplicationDomain;
     import flash.text.AntiAliasType;
     import flash.text.TextField;
     import flash.text.TextFormat;
     import flash.utils.getQualifiedClassName;
     
+    import phantom.consts.DefaultFontConfig;
+    import phantom.core.events.UIEvent;
     import phantom.core.interfaces.IDispose;
     import phantom.core.ns.PhantomInternalNamespace;
-    import phantom.consts.DefaultFontConfig;
     
     
 	use namespace PhantomInternalNamespace;
@@ -29,7 +30,7 @@ package phantom.ui.components
         private var _invalidate:Boolean;
         private var _couldTick:Boolean;
         private var _isDisposed:Boolean;
-        private var _domain:ApplicationDomain;
+		protected var _toolTip:Object;
         
         public function skinAdapter(skin:*)
         {
@@ -44,6 +45,49 @@ package phantom.ui.components
             }
         }
         
+		/**鼠标提示
+		 * 可以赋值为文本及函数，以实现自定义样式的鼠标提示和参数携带等
+		 * @example 下面例子展示了三种鼠标提示
+		 * <listing version="3.0">
+		 *	private var _testTips:TestTipsUI = new TestTipsUI();
+		 *	private function testTips():void {
+		 *		//简单鼠标提示
+		 *		btn2.toolTip = "这里是鼠标提示&lt;b&gt;粗体&lt;/b&gt;&lt;br&gt;换行";
+		 *		//自定义的鼠标提示
+		 *		btn1.toolTip = showTips1;
+		 *		//带参数的自定义鼠标提示
+		 *		clip.toolTip = new Handler(showTips2, ["clip"]);
+		 *	}
+		 *	private function showTips1():void {
+		 *		_testTips.label.text = "这里是按钮[" + btn1.label + "]";
+		 *		App.tip.addChild(_testTips);
+		 *	}
+		 *	private function showTips2(name:String):void {
+		 *		_testTips.label.text = "这里是" + name;
+		 *		App.tip.addChild(_testTips);
+		 *	}
+		 * </listing>*/
+		public function get toolTip():Object {
+			return _toolTip;
+		}
+		
+		public function set toolTip(value:Object):void {
+			if (_toolTip != value) {
+				_toolTip = value;
+				if (Boolean(value)) {
+					_view.addEventListener(MouseEvent.ROLL_OVER, onRollMouse);
+					_view.addEventListener(MouseEvent.ROLL_OUT, onRollMouse);
+				} else {
+					_view.removeEventListener(MouseEvent.ROLL_OVER, onRollMouse);
+					_view.removeEventListener(MouseEvent.ROLL_OUT, onRollMouse);
+				}
+			}
+		}
+		
+		private function onRollMouse(e:MouseEvent):void {
+			_view.dispatchEvent(new UIEvent(e.type == MouseEvent.ROLL_OVER ? UIEvent.SHOW_TIP : UIEvent.HIDE_TIP, _toolTip, true));
+		}
+//---------------------------------------------------uncheck---------------------------------------------------------------------------------		
         /**
          * 从父级对象中移除
          */        
@@ -145,6 +189,7 @@ package phantom.ui.components
                 _view = skin;
             }
             initializeSkin(skin);
+			this.toolTip = "fffffff";
             _couldTick = true;
             dispatchEvent(new Event(Event.INIT));
         }

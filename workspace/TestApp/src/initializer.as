@@ -15,7 +15,7 @@ package
     
     import phantom.core.consts.ManagerName;
     import phantom.core.handlers.Handler;
-    import phantom.core.managers.StageManager;
+    import phantom.core.managers.render.StageManager;
     import phantom.core.socket.NetworkManager;
     import phantom.core.socket.conn.ConnectionType;
     import phantom.core.socket.dataPackets.SocketPacket;

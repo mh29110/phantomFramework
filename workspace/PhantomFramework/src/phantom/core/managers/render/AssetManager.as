@@ -1,4 +1,4 @@
-package phantom.core.managers {
+package phantom.core.managers.render {
 	import flash.display.BitmapData;
 	import flash.system.ApplicationDomain;
 	

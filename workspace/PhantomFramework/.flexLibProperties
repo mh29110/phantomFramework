@@ -3,7 +3,7 @@
   <includeClasses>
     <classEntry path="phantom.core.interfaces.IDispose"/>
     <classEntry path="phantom.core.interfaces.IManager"/>
-    <classEntry path="phantom.core.managers.StageManager"/>
+    <classEntry path="phantom.core.managers.render.StageManager"/>
     <classEntry path="phantom.core.consts.ManagerName"/>
     <classEntry path="phantom.core.interfaces.conn.IProtocol"/>
     <classEntry path="phantom.core.socket.dataPackets.SocketPacket"/>
