@@ -8,10 +8,6 @@ bin/
 bin-debug/
 bin-release/
 .metadata/
-morndemo/
-.actionScriptProperties
-.flexLibProperties
-.project
 
 # Other files and folders
 .settings/
