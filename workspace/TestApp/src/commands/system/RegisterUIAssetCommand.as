@@ -6,6 +6,7 @@ package commands.system
 	import phantom.core.consts.ManagerName;
 	import phantom.ui.flash.UIAssetLinker;
 	import phantom.ui.screen.ScreenAdapter;
+	import phantom.ui.screen.ScreenAdapterMediator;
 	
 	public class RegisterUIAssetCommand extends SimpleCommand
 	{
@@ -18,7 +19,7 @@ package commands.system
 		{
 			var uiLinker:UIAssetLinker = AppCenter.instance.getManager(ManagerName.UIASSET_LINKER) as UIAssetLinker;
 			
-			uiLinker.addUI("majorscreen",ScreenAdapter);
+			uiLinker.addUI("majorscreen",ScreenAdapter,ScreenAdapterMediator);
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package phantom.ui.components
+package phantom.consts
 {
 	import flash.text.TextFormatAlign;
 

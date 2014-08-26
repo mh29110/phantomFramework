@@ -9,7 +9,6 @@ package phantom.ui.flash
     import phantom.core.handlers.Handler;
     import phantom.interfaces.IContainer;
     import phantom.ui.components.containerBase;
-    import phantom.ui.screen.ScreenAdapter;
     
     
     [Event(name="complete", type="flash.events.Event")]
@@ -63,7 +62,6 @@ package phantom.ui.flash
                 uiDefine = "screen.view." + _uiDefine;
             }
             
-            _defaultControllerDefine = ScreenAdapter;
             if(!controllerDefine)
             {
                 controllerDefine = _defaultControllerDefine;

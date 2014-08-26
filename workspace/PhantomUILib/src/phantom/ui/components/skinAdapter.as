@@ -16,6 +16,7 @@ package phantom.ui.components
     
     import phantom.core.interfaces.IDispose;
     import phantom.core.ns.PhantomInternalNamespace;
+    import phantom.consts.DefaultFontConfig;
     
     
 	use namespace PhantomInternalNamespace;

@@ -1,9 +1,9 @@
 package commands.system
 {
+	import commands.consts.CommandListSystem;
+	
 	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.patterns.command.SimpleCommand;
-	
-	import phantom.ui.screen.ScreenAdapterMediator;
 	
 	public class GameEnterCommand extends SimpleCommand
 	{
@@ -14,8 +14,10 @@ package commands.system
 		override public function execute(notification:INotification):void
 		{
 			
-			var majorScreen:ScreenAdapterMediator = new ScreenAdapterMediator("majorscreen");
-			facade.registerMediator(majorScreen);
+//			var majorScreen:ScreenAdapterMediator = new ScreenAdapterMediator("majorscreen");
+//			facade.registerMediator(majorScreen);
+			
+			facade.sendNotification(CommandListSystem.OPEN_SCREEN, ["majorscreen"]);
 			
 			/*var serv:Service = Service.instance;
 			

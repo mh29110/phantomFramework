@@ -24,7 +24,7 @@ package phantom.ui.screen
         
         /**
          * 构造
-         * @param screenDefineId        
+         * @param name        
          * @param controller
          */        
         public function ScreenAdapterMediator(name:String, controller:*=null)
@@ -58,85 +58,19 @@ package phantom.ui.screen
             }
         }
         
+		/**
+		 * @step 1 : when facade.registerMediator ,called . 
+		 * 
+		 */
         override public function onRegister():void
         {
             super.onRegister();
             getScreenAssets();
         }
         
-        public function activeScreen():void
-        {
-            _screenAdapter.visible = true;
-        }
         
-        public function deactiveScreen():void
-        {
-            
-        }
-        
-        override public function onRemove():void
-        {
-            if(_screenAdapter != null)
-            {
-//                sendNotification(CommandSystemOrder.SCREEN_SERVICE_POP, [ _screenController ] );
-            }
-        }
-        
-        public function dispose():void
-        {
-//            sendNotification(CommandSystemOrder.SCREEN_CLOSED, _screenDefineId);
-//            sendNotification(CommandSystemOrder.SCREEN_CLOSED+_screenDefineId);
-            if( _isDisposed == false )
-            {
-                _isDisposed = true;
-                destruct();
-            }
-        }
-        
-        
-        public function initMediator(...arg):void
-        {
-           
-        }
-        
-        public function tick(delta:Number):void
-        {
-//            if(_onInitScreenAssets && _assetsLoaderQueue) 
-//            {
-//                var busyIndicateServ:BusyIndicateService = Service.instance.getService(ServiceGuids.BUSY_INDICATE_SERVICE) as BusyIndicateService;
-//                busyIndicateServ.updatePercentMe(_assetsLoaderQueue.loadPercent);
-//            }
-//            if(_isCheckBot)
-//            {
-//                _botCounter.tick(delta);
-//                if(_botCounter.expired)
-//                {
-//                    checkShadowBot();
-//                    
-//                    _botCounter.initialize();
-//                    _botCounter.reset(ShadowBotConsts.DELAY);
-//                }
-//            }
-        }
-        
-        public function checkScreenMediatorExist(screenId:String):Boolean
-        {
-            return Boolean(facade.retrieveMediator(screenId) != null);
-        }
-        
-        public function closeScreen():void
-        {
-//            sendNotification(CommandSystemOrder.CLOSE_SCREEN, this);
-        }
-        
-        protected function initChildControllerMediator(childController:ScreenAdapter, mediatorClassDefine:Class):*
-        {
-            var id:String = _screenAdapter.name + "." + childController.name;
-            var mediator:ScreenAdapterMediator = new mediatorClassDefine(id, childController);
-            facade.registerMediator(mediator);
-            return mediator;
-        }
-        
+ 
+        //---------------------------------step one ,prepare assets and load into assetManager.
         protected function getScreenAssets(extAssetRequired:Vector.<String> = null):void
         {
             if(_screenAdapter == null && _screenDefineId)
@@ -161,25 +95,93 @@ package phantom.ui.screen
                 _onInitScreenAssets = true;
                 
 
-		onScreenDependsAssetsLoaded(1);
+				onScreenDependsAssetsLoaded(1);
             }
         }
-        
-        protected function destruct():void
-        {
-//            if(_screenController)
-//            {
-//                _screenController.dispose();
-//            }
-//            facade.removeMediator(getMediatorName());
-        }
-        
+		private function onScreenDependsAssetsLoaded(content:*):void
+		{
+			_onInitScreenAssets = false;
+			//            sendNotification(CommandSystemOrder.HIDE_BUSY_INDICATE);
+			
+			
+			var uam:UIAssetLinker = AppCenter.instance.getManager(ManagerName.UIASSET_LINKER) as UIAssetLinker;
+			uam.getUI(_screenDefineId, onScreenControllerPrepared);
+		}
+		
+		
+		private function onScreenControllerPrepared(uiAssetNode:UIAssetNode):void
+		{
+			if(!_screenAdapter)
+			{
+				_screenAdapter = uiAssetNode.getUIController() as IScreenAdapater;
+				initDataAndShow();
+			}
+		}
+		
+		private function initDataAndShow():void
+		{
+			_screenAdapter.setMediator(this);
+			_initialized = true;
+			//            sendNotification(CommandSystemOrder.SCREEN_INITIANIZED + _screenDefineId);
+			initialize();
+		}
+		
         protected function initialize():void
         {
             var stageManager:StageManager = AppCenter.instance.getManager(ManagerName.STAGE) as StageManager;
 			controller.addToParent(stageManager.stage);
         }
         
+		/**
+		 * step 2  :   
+		 * when real open this screen .init with the arguments
+		 * @param arg
+		 * @see OpenScreenCommand
+		 * 
+		 */
+		public function initMediator(...arg):void
+		{
+			trace("ScreenAdapterMediator.initMediator(arg)");
+		}
+		
+		public function tick(delta:Number):void
+		{
+			//            if(_onInitScreenAssets && _assetsLoaderQueue) 
+			//            {
+			//                var busyIndicateServ:BusyIndicateService = Service.instance.getService(ServiceGuids.BUSY_INDICATE_SERVICE) as BusyIndicateService;
+			//                busyIndicateServ.updatePercentMe(_assetsLoaderQueue.loadPercent);
+			//            }
+			//            if(_isCheckBot)
+			//            {
+			//                _botCounter.tick(delta);
+			//                if(_botCounter.expired)
+			//                {
+			//                    checkShadowBot();
+			//                    
+			//                    _botCounter.initialize();
+			//                    _botCounter.reset(ShadowBotConsts.DELAY);
+			//                }
+			//            }
+		}
+		
+		public function checkScreenMediatorExist(screenId:String):Boolean
+		{
+			return Boolean(facade.retrieveMediator(screenId) != null);
+		}
+		
+		public function closeScreen():void
+		{
+			//            sendNotification(CommandSystemOrder.CLOSE_SCREEN, this);
+		}
+		
+		protected function initChildControllerMediator(childController:ScreenAdapter, mediatorClassDefine:Class):*
+		{
+			var id:String = _screenAdapter.name + "." + childController.name;
+			var mediator:ScreenAdapterMediator = new mediatorClassDefine(id, childController);
+			facade.registerMediator(mediator);
+			return mediator;
+		}
+		
         protected function showScreenView():void
         {
 			trace("ScreenAdapterMediator.showScreenView()");
@@ -193,33 +195,46 @@ package phantom.ui.screen
 //            }
         }
         
-        private function onScreenDependsAssetsLoaded(content:*):void
-        {
-            _onInitScreenAssets = false;
-//            sendNotification(CommandSystemOrder.HIDE_BUSY_INDICATE);
-            
-            
-            var uam:UIAssetLinker = AppCenter.instance.getManager(ManagerName.UIASSET_LINKER) as UIAssetLinker;
-            uam.getUI(_screenDefineId, onScreenControllerPrepared);
-        }
         
-        private function onScreenControllerPrepared(uiAssetNode:UIAssetNode):void
-        {
-            if(!_screenAdapter)
-            {
-                _screenAdapter = uiAssetNode.getUIController() as IScreenAdapater;
-                initDataAndShow();
-            }
-        }
-        
-        private function initDataAndShow():void
-        {
-            _screenAdapter.setMediator(this);
-            _initialized = true;
-//            sendNotification(CommandSystemOrder.SCREEN_INITIANIZED + _screenDefineId);
-            initialize();
-        }
-        
+		protected function destruct():void
+		{
+			//            if(_screenController)
+			//            {
+			//                _screenController.dispose();
+			//            }
+			//            facade.removeMediator(getMediatorName());
+		}
+		
+		public function dispose():void
+		{
+			//            sendNotification(CommandSystemOrder.SCREEN_CLOSED, _screenDefineId);
+			//            sendNotification(CommandSystemOrder.SCREEN_CLOSED+_screenDefineId);
+			if( _isDisposed == false )
+			{
+				_isDisposed = true;
+				destruct();
+			}
+		}
+		
+		public function activeScreen():void
+		{
+			_screenAdapter.visible = true;
+		}
+		
+		public function deactiveScreen():void
+		{
+			
+		}
+		
+		override public function onRemove():void
+		{
+			if(_screenAdapter != null)
+			{
+				//                sendNotification(CommandSystemOrder.SCREEN_SERVICE_POP, [ _screenController ] );
+			}
+		}
+		
+		
         public function get isMajorScreen():Boolean
         {
             return _isMajorScreen;
