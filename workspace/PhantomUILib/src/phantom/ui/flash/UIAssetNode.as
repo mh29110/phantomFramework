@@ -28,7 +28,8 @@ package phantom.ui.flash
         
         public function startLoad():void
         {
-				AppCenter.instance.loader.loadSWF("assets/"+_uiDefine+".swf",new Handler(onAssetLoaded));
+		AppCenter.instance.loader.loadSWF("assets/"+_uiDefine+".swf",new Handler(onAssetLoaded));
+		//AppCenter.instance.loader.loadSWF("../assets/"+_uiDefine+".swf",new Handler(onAssetLoaded));
         }
         
         public function appendCallback(f:Function):void

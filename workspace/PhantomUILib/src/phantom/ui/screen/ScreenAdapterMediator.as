@@ -160,8 +160,8 @@ package phantom.ui.screen
                 
                 _onInitScreenAssets = true;
                 
-//				loader.loadSWF("assets/majorscreen.swf",new Handler(onScreenDependsAssetsLoaded));
-				onScreenDependsAssetsLoaded(1);
+
+		onScreenDependsAssetsLoaded(1);
             }
         }
         
