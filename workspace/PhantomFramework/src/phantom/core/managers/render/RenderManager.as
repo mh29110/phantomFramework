@@ -1,17 +1,19 @@
 package phantom.core.managers.render
 {
+	import flash.display.Sprite;
 	import flash.display.Stage;
 	import flash.events.Event;
 	import flash.utils.Dictionary;
 	
 	import phantom.core.events.UIEvent;
+	import phantom.core.interfaces.IManager;
 	
 	/**渲染管理器*/
-	public class RenderManager {
+	public class RenderManager implements IManager
+	{
 		private var _methods:Dictionary = new Dictionary();
 		private var _stage:Stage;	
-		public function RenderManager(stage:Stage) {
-			_stage = stage;
+		public function RenderManager() {
 		}
 		
 		private function invalidate():void {
@@ -30,6 +32,9 @@ package phantom.core.managers.render
 			_stage.dispatchEvent(new Event(UIEvent.RENDER_COMPLETED));
 		}
 		
+		public function register(main:Sprite):void {
+			_stage = main.stage;
+		}
 		/**执行所有延迟调用*/
 		public function renderAll():void {
 			for (var method:Object in _methods) {

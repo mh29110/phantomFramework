@@ -7,7 +7,7 @@ package {
 	import phantom.core.managers.LogManager;
 	import phantom.core.managers.TimerManager;
 	import phantom.core.managers.render.AssetManager;
-	import phantom.core.managers.render.LayerManager;
+	import phantom.core.managers.render.RenderManager;
 	import phantom.core.managers.render.TipManager;
 	
 	/**
@@ -83,6 +83,7 @@ package {
 		private var _asset:AssetManager;
 		
 		private var _tip:TipManager;
+		
 		public static function get instance() : AppCenter
 		{
 			if (_instance == null)
@@ -119,6 +120,11 @@ package {
 		public function get tip():TipManager
 		{
 			return _tip;
+		}
+		
+		public function get render():RenderManager
+		{
+			return getManager(ManagerName.RENDER) as RenderManager;
 		}
 
 		//		private static var _dialog:DialogManager = new DialogManager();

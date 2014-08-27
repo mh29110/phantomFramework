@@ -22,6 +22,7 @@ package
 	import phantom.core.consts.ManagerName;
 	import phantom.core.handlers.Handler;
 	import phantom.core.managers.render.LayerManager;
+	import phantom.core.managers.render.RenderManager;
 	import phantom.core.managers.render.StageManager;
 	
 	import splash.VersionSprite;
@@ -69,6 +70,8 @@ package
 			var stageManager:StageManager = new StageManager();
 			app.addManager(stageManager,ManagerName.STAGE);
 			stageManager.register(this);
+			var renderManager:RenderManager = new RenderManager();
+			app.addManager(renderManager,ManagerName.RENDER);
 
 			
 			// pattern one  flash vars  - by uqee.com

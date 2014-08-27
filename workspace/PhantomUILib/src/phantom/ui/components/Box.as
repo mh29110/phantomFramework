@@ -6,20 +6,15 @@ package phantom.ui.components
     import phantom.core.interfaces.IDispose;
     import phantom.interfaces.IContainer;
     
-    public class containerBase extends skinAdapter implements IContainer
+    public class Box extends skinAdapter implements IContainer
     {
         private var _adapterList:Vector.<skinAdapter>;
         private var _container:DisplayObjectContainer;
         
-        public function containerBase(skin:*)
+        public function Box(skin:*)
         {
             _adapterList = new Vector.<skinAdapter>();
             super(skin);
-        }
-        
-        override public function tick(delta:Number):void
-        {
-            super.tick(delta);
         }
         
         /**
@@ -116,7 +111,7 @@ package phantom.ui.components
         
         override protected function initializeSkin(skin:*):void
         {
-            container = skin;
+            _container = skin;
         }
         
         override protected function destruct():void
@@ -171,7 +166,7 @@ package phantom.ui.components
         }
         
         
-        public function set mouseChildren(value:Boolean):void
+        override public function set mouseChildren(value:Boolean):void
         {
             container.mouseChildren = value;
         }
@@ -193,13 +188,6 @@ package phantom.ui.components
             return _container;
         }
         
-        /**
-         * 设置容器
-         */        
-        protected function set container(value:DisplayObjectContainer):void
-        {
-            _container = value;
-        }
         protected function get container():DisplayObjectContainer
         {
             return _container;

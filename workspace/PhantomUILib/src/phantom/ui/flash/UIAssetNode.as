@@ -8,7 +8,7 @@ package phantom.ui.flash
     
     import phantom.core.handlers.Handler;
     import phantom.interfaces.IContainer;
-    import phantom.ui.components.containerBase;
+    import phantom.ui.components.Box;
     
     
     [Event(name="complete", type="flash.events.Event")]
@@ -71,7 +71,7 @@ package phantom.ui.flash
             {
                 var skinClass:Class = getDefinitionByName(uiDefine) as Class;
                 var skin:MovieClip = new skinClass() as MovieClip;
-                var adapter:containerBase = new controllerDefine() as containerBase;
+                var adapter:Box = new controllerDefine() as Box;
 
                 if(skin && adapter)
                 {

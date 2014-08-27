@@ -18,6 +18,7 @@ package phantom.ui.components
     import phantom.core.events.UIEvent;
     import phantom.core.interfaces.IDispose;
     import phantom.core.ns.PhantomInternalNamespace;
+    import phantom.core.utils.ObjectUtils;
     
     
 	use namespace PhantomInternalNamespace;
@@ -27,10 +28,10 @@ package phantom.ui.components
         private var _eventFunctionList:Vector.<Function>;
         private var _eventUseCaptureList:Vector.<Boolean>;
         private var _view:MovieClip;
-        private var _invalidate:Boolean;
-        private var _couldTick:Boolean;
         private var _isDisposed:Boolean;
 		protected var _toolTip:Object;
+		private var _disabled:Boolean;
+		private var _mouseChildren:Boolean;
         
         public function skinAdapter(skin:*)
         {
@@ -87,6 +88,59 @@ package phantom.ui.components
 		private function onRollMouse(e:MouseEvent):void {
 			_view.dispatchEvent(new UIEvent(e.type == MouseEvent.ROLL_OVER ? UIEvent.SHOW_TIP : UIEvent.HIDE_TIP, _toolTip, true));
 		}
+		
+		/**
+		 * 重绘对象
+		 * 在组件被显示在屏幕之前调用render函数
+		 * @see phantom.ui.components.skinAdapter.callLater
+		 */		
+		public function invalidate():void
+		{
+			callLater(render);
+		}
+		
+		/**
+		 * 渲染
+		 */        
+		protected function render():void
+		{
+			
+		}
+		
+		/**延迟调用，在组件被显示在屏幕之前调用*/
+		public function callLater(method:Function, args:Array = null):void {
+			AppCenter.instance.render.callLater(method, args);
+		}
+		
+		/**立即执行延迟调用*/
+		public function exeCallLater(method:Function):void {
+			AppCenter.instance.render.exeCallLater(method);
+		}
+		
+		/**派发事件，data为事件携带数据*/
+		public function sendEvent(type:String, data:* = null):void {
+			if (hasEventListener(type)) {
+				dispatchEvent(new UIEvent(type, data));
+			}
+		}
+		
+		/**是否禁用*/
+		public function get disabled():Boolean {
+			return _disabled;
+		}
+		
+		public function set disabled(value:Boolean):void {
+			if (_disabled != value) {
+				_disabled = value;
+				mouseEnabled = !value;
+				_view.mouseChildren = value ? false : _mouseChildren;
+				ObjectUtils.gray(_view, _disabled);
+			}
+		}
+		
+		public function set mouseChildren(value:Boolean):void {
+			_mouseChildren = _view.mouseChildren = value;
+		}
 //---------------------------------------------------uncheck---------------------------------------------------------------------------------		
         /**
          * 从父级对象中移除
@@ -106,14 +160,7 @@ package phantom.ui.components
         {
             parent.addChild(view);
         }
-        
-        /**
-         * 重绘对象
-         */		
-        public function invalidate():void
-        {
-            _invalidate = true;
-        }
+    
         
         /**
          * 取得全局坐标
@@ -127,15 +174,7 @@ package phantom.ui.components
             }
             return view.localToGlobal(target);
         }
-        
-        /**
-         * 时间推进
-         * @param delta 更新的时间差
-         */        
-        public function tick(delta:Number):void
-        {
-            checkInvalidate();
-        }
+      
         
         public function dispose():void
         {
@@ -190,7 +229,6 @@ package phantom.ui.components
             }
             initializeSkin(skin);
 			this.toolTip = "fffffff";
-            _couldTick = true;
             dispatchEvent(new Event(Event.INIT));
         }
         
@@ -229,7 +267,6 @@ package phantom.ui.components
         
         protected function destruct():void
         {
-            _couldTick = false;
             removeFromParent();
             removeEventListeners();
         }
@@ -254,13 +291,6 @@ package phantom.ui.components
             
         }
         
-        /**
-         * 渲染
-         */        
-        protected function render():void
-        {
-            
-        }
         
         /**
          * 取得一个影片剪辑对象
@@ -356,18 +386,6 @@ package phantom.ui.components
             target.embedFonts = true;
         }
         
-        /**
-         * 检查是否需要重绘 
-         */        
-        protected function checkInvalidate():void
-        {
-            if(_invalidate)
-            {
-                _invalidate = false;
-                render();
-                dispatchEvent(new Event(Event.RENDER));
-            }
-        }
         
         /**
          * 取得一个显示对象
@@ -533,14 +551,6 @@ package phantom.ui.components
         public function get name():String
         {
             return view.name;
-        }
-        
-        /**
-         * 可以被时间推动 
-         */
-        public function get couldTick():Boolean
-        {
-            return _couldTick;
         }
         
         public function get parent():DisplayObjectContainer

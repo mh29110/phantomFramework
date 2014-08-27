@@ -7,9 +7,9 @@ package phantom.ui.screen
     import phantom.core.managers.render.StageManager;
     import phantom.interfaces.IScreenAdapater;
     import phantom.interfaces.IScreenAdapterMediator;
-    import phantom.ui.components.containerBase;
+    import phantom.ui.components.Box;
     
-    public class ScreenAdapter extends containerBase implements IScreenAdapater
+    public class ScreenAdapter extends Box implements IScreenAdapater
     {
         private var _mediator:IScreenAdapterMediator
         private var _onCloseHandle:Function;
@@ -68,15 +68,6 @@ package phantom.ui.screen
             {
 //                _mediator.dispose();
             }
-        }
-        
-        override public function tick(delta:Number):void
-        {
-//            super.tick(delta);
-//            if(_mediator && _mediator.couldTick)
-//            {
-//                _mediator.tick(delta);
-//            }
         }
         
 //        override protected function closeWindow():void
