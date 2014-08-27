@@ -12,8 +12,8 @@ package phantom.core.managers {
 	
 	import phantom.core.consts.ManagerName;
 	import phantom.core.interfaces.IManager;
-	import phantom.core.utils.ObjectUtils;
 	import phantom.core.managers.render.StageManager;
+	import phantom.core.utils.ObjectUtils;
 	
 	/**日志管理器*/
 	public class LogManager extends Sprite  implements IManager
@@ -161,11 +161,12 @@ package phantom.core.managers {
 		}
 		
 		/**打开或隐藏面板*/
-		public function toggle():void {
+		public function toggle():LogManager {
 			_box.visible = !_box.visible;
 			if (_box.visible) {
 				refresh(null);
 			}
+			return this;
 		}
 		
 		/**根据过滤刷新显示*/

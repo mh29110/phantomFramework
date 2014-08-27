@@ -7,6 +7,7 @@
     <classEntry path="phantom.core.consts.ManagerName"/>
     <classEntry path="phantom.core.interfaces.conn.IProtocol"/>
     <classEntry path="phantom.core.socket.dataPackets.SocketPacket"/>
+    <classEntry path="phantom.core.managers.render.LayerManager"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

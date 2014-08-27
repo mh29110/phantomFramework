@@ -21,6 +21,7 @@ package
 	
 	import phantom.core.consts.ManagerName;
 	import phantom.core.handlers.Handler;
+	import phantom.core.managers.render.LayerManager;
 	import phantom.core.managers.render.StageManager;
 	
 	import splash.VersionSprite;
@@ -67,8 +68,8 @@ package
 			var app:AppCenter = AppCenter.instance;
 			var stageManager:StageManager = new StageManager();
 			app.addManager(stageManager,ManagerName.STAGE);
-			StageManager(AppCenter.instance.getManager(ManagerName.STAGE)).register(this);
-			
+			stageManager.register(this);
+
 			
 			// pattern one  flash vars  - by uqee.com
 			var flashvars:Object = root.loaderInfo.parameters;

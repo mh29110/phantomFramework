@@ -9,6 +9,9 @@
 **** asset && render 
 **** tipManager
 **** timerManager
+**** DONE layerManager 
+CLOSED: [2014-08-27 Wed 11:23]
+- State "DONE"       from ""           [2014-08-27 Wed 11:23]
 ** main
 *** preloader ,initer and gameStage loaded.
 *** facade install

@@ -7,6 +7,7 @@ package {
 	import phantom.core.managers.LogManager;
 	import phantom.core.managers.TimerManager;
 	import phantom.core.managers.render.AssetManager;
+	import phantom.core.managers.render.LayerManager;
 	import phantom.core.managers.render.TipManager;
 	
 	/**

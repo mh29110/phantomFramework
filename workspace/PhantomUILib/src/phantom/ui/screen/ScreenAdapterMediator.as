@@ -4,6 +4,7 @@ package phantom.ui.screen
     
     import phantom.core.consts.ManagerName;
     import phantom.core.managers.LoaderManager;
+    import phantom.core.managers.render.LayerManager;
     import phantom.core.managers.render.StageManager;
     import phantom.interfaces.IScreenAdapater;
     import phantom.interfaces.IScreenAdapterMediator;
@@ -128,8 +129,10 @@ package phantom.ui.screen
 		
         protected function initialize():void
         {
-            var stageManager:StageManager = AppCenter.instance.getManager(ManagerName.STAGE) as StageManager;
-			controller.addToParent(stageManager.stage);
+			var app:AppCenter = AppCenter.instance;
+            var stageManager:StageManager = app.getManager(ManagerName.STAGE) as StageManager;
+			var layer:LayerManager = app.getManager(ManagerName.LAYER) as LayerManager;
+			layer.addToLayerAt(controller.view,LayerManager.SCREEN_LAYER);
         }
         
 		/**

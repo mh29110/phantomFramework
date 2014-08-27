@@ -14,6 +14,9 @@ package
     import org.puremvc.as3.interfaces.IFacade;
     import org.puremvc.as3.patterns.facade.Facade;
     
+    import phantom.core.consts.ManagerName;
+    import phantom.core.managers.render.LayerManager;
+    
     import splash.VersionSprite;
     
     public class GameStage extends VersionSprite
@@ -47,6 +50,9 @@ package
 //            Facade.getInstance().registerMediator(prepareAssetServ);
 //            prepareAssetServ.addEventListener(SystemEvent.PREPARE_ASSETS_SERV_READY, initServices);
 //            prepareAssetServ.initialize();
+
+			var layerManager:LayerManager = new LayerManager(stage);
+			AppCenter.instance.addManager(layerManager,ManagerName.LAYER);
 
 			initServices(null);
 

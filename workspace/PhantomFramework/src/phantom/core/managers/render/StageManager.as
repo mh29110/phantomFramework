@@ -31,9 +31,6 @@ package phantom.core.managers.render
 				}
 			}
 			
-			//最好移动到专门的舞台容器管理器中.
-			_stage.addChild(AppCenter.instance.log);
-			_stage.addChild(AppCenter.instance.tip);
 		}
 		
 		public function get stage():Stage
