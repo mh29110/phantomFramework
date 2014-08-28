@@ -7,7 +7,7 @@ package phantom.ui.flash
     import flash.utils.getDefinitionByName;
     
     import phantom.core.handlers.Handler;
-    import phantom.interfaces.IContainer;
+    import phantom.interfaces.IBox;
     import phantom.ui.components.Box;
     
     
@@ -55,7 +55,7 @@ package phantom.ui.flash
             dispatchEvent(new Event(Event.COMPLETE));
         }
         
-        public function getUIController(uiDefine:String = null, controllerDefine:Class = null):IContainer
+        public function getUIController(uiDefine:String = null, controllerDefine:Class = null):IBox
         {
             if(!uiDefine)
             {

@@ -22,7 +22,7 @@ package phantom.ui.components
     
     
 	use namespace PhantomInternalNamespace;
-    public class skinAdapter extends EventDispatcher implements IDispose
+    public class skinAdapter implements IDispose
 	{
         private var _eventList:Vector.<String>;
         private var _eventFunctionList:Vector.<Function>;
@@ -39,7 +39,6 @@ package phantom.ui.components
             _eventFunctionList = new Vector.<Function>();
             _eventUseCaptureList = new Vector.<Boolean>();
             
-            super(this);
             if(skin)
             {
                 initialize(skin);
@@ -119,8 +118,8 @@ package phantom.ui.components
 		
 		/**派发事件，data为事件携带数据*/
 		public function sendEvent(type:String, data:* = null):void {
-			if (hasEventListener(type)) {
-				dispatchEvent(new UIEvent(type, data));
+			if (_view.hasEventListener(type)) {
+				_view.dispatchEvent(new UIEvent(type, data));
 			}
 		}
 		
@@ -184,25 +183,25 @@ package phantom.ui.components
                 destruct();
             }
         }
-        override public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0,useWeakReference:Boolean = false):void
+        public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0,useWeakReference:Boolean = false):void
         {
             if(useWeakReference == true)
             {
-                super.addEventListener(type,listener,useCapture,priority,useWeakReference);
+				_view.addEventListener(type,listener,useCapture,priority,useWeakReference);
                 return;
             }
             
             var index:int = getEventListenerIndex(type, listener, useCapture);
             if(index < 0)
             {
-                super.addEventListener(type,listener,useCapture,priority,useWeakReference);
+				_view.addEventListener(type,listener,useCapture,priority,useWeakReference);
                 _eventList.push(type);
                 _eventFunctionList.push(listener);
                 _eventUseCaptureList.push(useCapture);
             }
         }
         
-        override public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void
+        public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void
         {
             var index:int = getEventListenerIndex(type, listener, useCapture);
             if(index < 0)
@@ -210,7 +209,7 @@ package phantom.ui.components
                 return;
             }
             
-            super.removeEventListener(type,listener,useCapture);
+			_view.removeEventListener(type,listener,useCapture);
             
             _eventList.splice(index,1);
             _eventFunctionList.splice(index,1);
@@ -229,7 +228,7 @@ package phantom.ui.components
             }
             initializeSkin(skin);
 			this.toolTip = "fffffff";
-            dispatchEvent(new Event(Event.INIT));
+			skin.dispatchEvent(new Event(Event.INIT));
         }
         
         protected function getEventListenerIndex(type:String, listener:Function, useCapture:Boolean = false):int

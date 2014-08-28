@@ -2,7 +2,7 @@ package phantom.interfaces
 {
     import flash.display.DisplayObject;
 
-    public interface IContainer extends ISkinAdapter
+    public interface IBox extends ISkinAdapter
     {
         /**
          * 从 DisplayObjectContainer 实例的子列表中删除指定的 child DisplayObject 实例。 

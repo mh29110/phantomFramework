@@ -12,5 +12,6 @@ package phantom.core.consts
 			    public static const TIP:String 						= "tip manager";
 			    public static const LAYER:String 					= "layer manager";
 			    public static const RENDER:String 					= "render manager";
+			    public static const LANGUAGE:String 				= "language manager";
 	}
 }

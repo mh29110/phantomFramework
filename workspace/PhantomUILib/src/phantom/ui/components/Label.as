@@ -52,7 +52,6 @@ package phantom.ui.components
 			if (_text != value) {
 				_text = value || "";
 				_text = _text.replace(/\\n/g, "\n");
-				//callLater(changeText);
 				changeText();
 				sendEvent(Event.CHANGE);
 			}
@@ -61,25 +60,7 @@ package phantom.ui.components
 		protected function changeText():void
 		{
 			_textField.defaultTextFormat = _format;
-			_isHtml ? _textField.htmlText = " ":""/* App.lang.getLang(_text) : _textField.text = App.lang.getLang(_text)*/
-		}
-		
-		/*override*/ protected function changeSize():void 
-		{
-			/*if (!isNaN(_width)) {
-				_textField.autoSize = TextFieldAutoSize.NONE;
-				_textField.width = _width - _margin[0] - _margin[2];
-				if (isNaN(_height) && wordWrap) {
-					_textField.autoSize = TextFieldAutoSize.LEFT;
-				} else {
-					_height = isNaN(_height) ? 18 : _height;
-					_textField.height = _height - _margin[1] - _margin[3];
-				}
-			} else {
-				_width = _height = NaN;
-				_textField.autoSize = TextFieldAutoSize.LEFT;
-			}
-			super.changeSize();*/
+			_isHtml ? _textField.htmlText =  AppCenter.instance.lang.getLang(_text) : _textField.text = AppCenter.instance.lang.getLang(_text);
 		}
 		
 		/**是否是html格式*/
@@ -93,24 +74,6 @@ package phantom.ui.components
 			if (_isHtml != value) {
 				_isHtml = value;
 				callLater(changeText);
-			}
-		}
-		
-		/**描边(格式:color,alpha,blurX,blurY,strength,quality)*/
-		public function get stroke():String 
-		{
-			return _stroke;
-		}
-		
-		public function set stroke(value:String):void 
-		{
-			if (_stroke != value) {
-				_stroke = value;
-				ObjectUtils.clearFilter(_textField, GlowFilter);
-				if (Boolean(_stroke)) {
-					var a:Array = StringUtils.fillArray(Styles.labelStroke, _stroke);
-					ObjectUtils.addFilter(_textField, new GlowFilter(a[0], a[1], a[2], a[3], a[4], a[5]));
-				}
 			}
 		}
 		
@@ -300,20 +263,6 @@ package phantom.ui.components
 			callLater(changeText);
 		}
 		
-		/**边距(格式:左边距,上边距,右边距,下边距)*/
-		public function get margin():String 
-		{
-			return _margin.join(",");
-		}
-		
-		public function set margin(value:String):void 
-		{
-			_margin = StringUtils.fillArray(_margin, value, int);
-			_textField.x = _margin[0];
-			_textField.y = _margin[1];
-			callLater(changeSize);
-		}
-		
 		/**是否嵌入*/
 		public function get embedFonts():Boolean 
 		{
@@ -347,6 +296,59 @@ package phantom.ui.components
 		public function appendText(newText:String):void 
 		{
 			text += newText;
+		}
+//------------------------------------------------discard ----------------------------------------------------------------
+		/**
+		 * 用flash做UI编辑器时不需要在代码中做太多尺寸调节. 
+		 * 
+		 */
+		/*override*/ protected function changeSize():void 
+		{
+			/*if (!isNaN(_width)) {
+			_textField.autoSize = TextFieldAutoSize.NONE;
+			_textField.width = _width - _margin[0] - _margin[2];
+			if (isNaN(_height) && wordWrap) {
+			_textField.autoSize = TextFieldAutoSize.LEFT;
+			} else {
+			_height = isNaN(_height) ? 18 : _height;
+			_textField.height = _height - _margin[1] - _margin[3];
+			}
+			} else {
+			_width = _height = NaN;
+			_textField.autoSize = TextFieldAutoSize.LEFT;
+			}
+			super.changeSize();*/
+		}
+		
+		/**边距(格式:左边距,上边距,右边距,下边距)*/
+		public function get margin():String 
+		{
+			return _margin.join(",");
+		}
+		
+		public function set margin(value:String):void 
+		{
+			_margin = StringUtils.fillArray(_margin, value, int);
+			_textField.x = _margin[0];
+			_textField.y = _margin[1];
+			callLater(changeSize);
+		}
+		
+		/**描边(格式:color,alpha,blurX,blurY,strength,quality)*/
+		public function get stroke():String 
+		{
+			return _stroke;
+		}
+		public function set stroke(value:String):void 
+		{
+			if (_stroke != value) {
+				_stroke = value;
+				ObjectUtils.clearFilter(_textField, GlowFilter);
+				if (Boolean(_stroke)) {
+					var a:Array = StringUtils.fillArray(Styles.labelStroke, _stroke);
+					ObjectUtils.addFilter(_textField, new GlowFilter(a[0], a[1], a[2], a[3], a[4], a[5]));
+				}
+			}
 		}
 	}
 }

@@ -7,6 +7,7 @@ package {
 	import phantom.core.managers.LogManager;
 	import phantom.core.managers.TimerManager;
 	import phantom.core.managers.render.AssetManager;
+	import phantom.core.managers.render.LangManager;
 	import phantom.core.managers.render.RenderManager;
 	import phantom.core.managers.render.TipManager;
 	
@@ -20,17 +21,19 @@ package {
 		public function AppCenter()
 		{
 			_managerMap = new Dictionary();
-
-			  _asset	= new AssetManager();
-			  _loader	= new LoaderManager();
-			  _timer 	= new TimerManager();
-			  _log 		= new LogManager();
-			  _tip 		= new TipManager();
-			  addManager(_asset, ManagerName.ASSET);
-			  addManager(_loader, ManagerName.LOADER);
-			  addManager(_timer, ManagerName.TIMER);
-			  addManager(_log, ManagerName.LOG);
-			  addManager(_tip , ManagerName.TIP);
+			
+			_lang = new LangManager();
+			_asset	= new AssetManager();
+			_loader	= new LoaderManager();
+			_timer 	= new TimerManager();
+			_log 		= new LogManager();
+			_tip 		= new TipManager();
+			addManager(_asset, ManagerName.ASSET);
+			addManager(_loader, ManagerName.LOADER);
+			addManager(_timer, ManagerName.TIMER);
+			addManager(_log, ManagerName.LOG);
+			addManager(_tip , ManagerName.TIP);
+			addManager(_lang, ManagerName.LANGUAGE);
 		}
 
 
@@ -83,6 +86,8 @@ package {
 		private var _asset:AssetManager;
 		
 		private var _tip:TipManager;
+
+		private var _lang:LangManager;
 		
 		public static function get instance() : AppCenter
 		{
@@ -126,6 +131,12 @@ package {
 		{
 			return getManager(ManagerName.RENDER) as RenderManager;
 		}
+
+		public function get lang():LangManager
+		{
+			return _lang;
+		}
+
 
 		//		private static var _dialog:DialogManager = new DialogManager();
 

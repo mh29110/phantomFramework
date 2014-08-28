@@ -6,8 +6,8 @@ package commands.system
 	import phantom.core.consts.ManagerName;
 	import phantom.ui.flash.UIAssetLinker;
 	
-	import view.consts.MajorScreenAdapter;
-	import view.consts.MajorScreenAdapterMediator;
+	import view.MajorScreenAdapter;
+	import view.MajorScreenAdapterMediator;
 	import view.consts.ScreenUIDefine;
 	
 	public class RegisterUIAssetCommand extends SimpleCommand

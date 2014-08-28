@@ -1,7 +1,10 @@
 package phantom.core.managers.render
 {
+	import phantom.core.interfaces.IManager;
+
 	/**语言管理器*/
-	public class LangManager {
+	public class LangManager implements IManager
+	{
 		
 		private var _data:Object = {};
 		
@@ -9,18 +12,21 @@ package phantom.core.managers.render
 		}
 		
 		/**语言包(key:value方式)*/
-		public function get data():Object {
+		public function get data():Object 
+		{
 			return _data;
 		}
 		
-		public function set data(value:Object):void {
+		public function set data(value:Object):void 
+		{
 			_data = value;
 		}
 		
 		/**获取语言
 		 * @param code 索引key
 		 * @param ...args 参数*/
-		public function getLang(code:String, ... args):String {
+		public function getLang(code:String, ... args):String 
+		{
 			var str:String = _data[code] || code;
 			if (args.length > 0) {
 				for (var i:int = 0, n:int = args.length; i < n; i++) {

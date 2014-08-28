@@ -1,11 +1,11 @@
 package phantom.ui.components
 {
+	import flash.display.MovieClip;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	
 	import phantom.core.handlers.Handler;
 	import phantom.core.managers.render.Styles;
-	import phantom.core.utils.StringUtils;
 	
 	
 	/**selected属性变化时调度*/
@@ -14,27 +14,31 @@ package phantom.ui.components
 	/**按钮类，可以是单态，两态和三态，默认三态(up,over,down)*/
 	public class Button extends skinAdapter 
 	{
-		protected static var stateMap:Object = {"rollOver": 1, "rollOut": 0, "mouseDown": 2, "mouseUp": 1, "selected": 2};
-		protected var _btnLabel:Label;
+		protected static var stateMap:Object = {"rollOver": 2, "rollOut": 1, "mouseDown": 3, "mouseUp": 2, "selected": 3};
 		protected var _clickHandler:Handler;
-		protected var _labelColors:Array = Styles.buttonLabelColors;
-		protected var _labelMargin:Array = Styles.buttonLabelMargin;
 		protected var _state:int;
 		protected var _toggle:Boolean;
 		protected var _selected:Boolean;
 		protected var _skin:String;
-		protected var _autoSize:Boolean = true;
 		protected var _stateNum:int = Styles.buttonStateNum;
 		
 		protected var _btnClip:Clip ;
+		protected var _btnLabel:Label;
 		
-		public function Button(skin:*) {
+		public function Button(skin:*) 
+		{
 			super(skin);
 		}
 		
-		override protected function initializeSkin(skin:*):void {
+		override protected function initializeSkin(skin:*):void 
+		{
 			_btnClip = new Clip(skin);
 			
+			if(skin is  MovieClip)
+			{	//尝试获取按钮文本
+				_btnLabel = new Label(skin.getChildByName("txt_label"));
+			}
+
 			_btnClip.addEventListener(MouseEvent.ROLL_OVER, onMouse);
 			_btnClip.addEventListener(MouseEvent.ROLL_OUT, onMouse);
 			_btnClip.addEventListener(MouseEvent.MOUSE_DOWN, onMouse);
@@ -42,7 +46,8 @@ package phantom.ui.components
 			_btnClip.addEventListener(MouseEvent.CLICK, onMouse);
 		}
 		
-		protected function onMouse(e:MouseEvent):void {
+		protected function onMouse(e:MouseEvent):void 
+		{
 			if ((_toggle == false && _selected) || _disabled) {
 				return;
 			}
@@ -61,11 +66,13 @@ package phantom.ui.components
 		}
 		
 		/**按钮标签*/
-		public function get label():String {
+		public function get label():String 
+		{
 			return _btnLabel.text;
 		}
 		
-		public function set label(value:String):void {
+		public function set label(value:String):void 
+		{
 			if (_btnLabel.text != value) {
 				_btnLabel.text = value;
 				callLater(changeState);
@@ -73,11 +80,13 @@ package phantom.ui.components
 		}
 		
 		/**是否是选择状态*/
-		public function get selected():Boolean {
+		public function get selected():Boolean 
+		{
 			return _selected;
 		}
 		
-		public function set selected(value:Boolean):void {
+		public function set selected(value:Boolean):void 
+		{
 			if (_selected != value) {
 				_selected = value;
 				state = _selected ? stateMap["selected"] : stateMap["rollOut"];
@@ -87,25 +96,30 @@ package phantom.ui.components
 			}
 		}
 		
-		protected function get state():int {
+		protected function get state():int 
+		{
 			return _state;
 		}
 		
-		protected function set state(value:int):void {
+		protected function set state(value:int):void 
+		{
 			_state = value;
 			callLater(changeState);
 		}
 		/**皮肤的状态数，支持单态，两态和三态按钮，分别对应1,2,3值，默认是三态*/
-		public function get stateNum():int {
+		public function get stateNum():int 
+		{
 			return _stateNum;
 		}
 		
-		public function set stateNum(value:int):void {
+		public function set stateNum(value:int):void 
+		{
 			if (_stateNum != value) {
 				_stateNum = value < 1 ? 1 : value > 3 ? 3 : value;
 			}
 		}
-		protected function changeState():void {
+		protected function changeState():void 
+		{
 			var index:int = _state;
 			if (_stateNum == 2) {
 				index = index < 2 ? index : 1;
@@ -116,51 +130,51 @@ package phantom.ui.components
 		}
 		
 		/**是否是切换状态*/
-		public function get toggle():Boolean {
+		public function get toggle():Boolean 
+		{
 			return _toggle;
 		}
 		
-		public function set toggle(value:Boolean):void {
+		public function set toggle(value:Boolean):void 
+		{
 			_toggle = value;
 		}
 		
-		override public function set disabled(value:Boolean):void {
-			if (_disabled != value) {
+		override public function set disabled(value:Boolean):void 
+		{
+			if (_disabled != value) 
+			{
 				state = _selected ? stateMap["selected"] : stateMap["rollOut"];
 				super.disabled = value;
 			}
 		}
 		
-		/**按钮标签颜色(格式:upColor,overColor,downColor,disableColor)*/
-		public function get labelColors():String {
-			return String(_labelColors);
-		}
-		
-		public function set labelColors(value:String):void {
-			_labelColors = StringUtils.fillArray(_labelColors, value);
-			callLater(changeState);
-		}
 		
 		/**按钮标签描边(格式:color,alpha,blurX,blurY,strength,quality)*/
-		public function get labelStroke():String {
+		public function get labelStroke():String 
+		{
 			return _btnLabel.stroke;
 		}
 		
-		public function set labelStroke(value:String):void {
+		public function set labelStroke(value:String):void 
+		{
 			_btnLabel.stroke = value;
 		}
 		
 		/**点击处理器(无默认参数)*/
-		public function get clickHandler():Handler {
+		public function get clickHandler():Handler 
+		{
 			return _clickHandler;
 		}
 		
-		public function set clickHandler(value:Handler):void {
+		public function set clickHandler(value:Handler):void 
+		{
 			_clickHandler = value;
 		}
 		
 		/**按钮标签控件*/
-		public function get btnLabel():Label {
+		public function get btnLabel():Label 
+		{
 			return _btnLabel;
 		}
 		

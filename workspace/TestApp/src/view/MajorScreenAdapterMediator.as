@@ -1,4 +1,4 @@
-package view.consts
+package view
 {
 	import org.puremvc.as3.interfaces.INotification;
 	

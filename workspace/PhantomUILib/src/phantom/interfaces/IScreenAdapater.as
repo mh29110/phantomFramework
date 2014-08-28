@@ -1,6 +1,6 @@
 package phantom.interfaces
 {
-	public interface IScreenAdapater extends IContainer
+	public interface IScreenAdapater extends IBox
 	{
 		/**
 		 * 面板中间件

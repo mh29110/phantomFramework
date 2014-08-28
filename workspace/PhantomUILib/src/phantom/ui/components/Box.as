@@ -4,9 +4,9 @@ package phantom.ui.components
     import flash.display.DisplayObjectContainer;
     
     import phantom.core.interfaces.IDispose;
-    import phantom.interfaces.IContainer;
+    import phantom.interfaces.IBox;
     
-    public class Box extends skinAdapter implements IContainer
+    public class Box extends skinAdapter implements IBox
     {
         private var _adapterList:Vector.<skinAdapter>;
         private var _container:DisplayObjectContainer;
