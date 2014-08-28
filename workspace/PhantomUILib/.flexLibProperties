@@ -6,6 +6,7 @@
     <classEntry path="phantom.interfaces.IScreenAdapterMediator"/>
     <classEntry path="phantom.interfaces.IScreenAdapater"/>
     <classEntry path="phantom.ui.screen.CloseScreenCommand"/>
+    <classEntry path="phantom.interfaces.IComponent"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

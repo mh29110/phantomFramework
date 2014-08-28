@@ -12,7 +12,7 @@ package phantom.ui.components
 	[Event(name="change",type="flash.events.Event")]
 	
 	/**按钮类，可以是单态，两态和三态，默认三态(up,over,down)*/
-	public class Button extends skinAdapter 
+	public class Button extends ComponentAdapter 
 	{
 		protected static var stateMap:Object = {"rollOver": 2, "rollOut": 1, "mouseDown": 3, "mouseUp": 2, "selected": 3};
 		protected var _clickHandler:Handler;

@@ -15,7 +15,7 @@ package phantom.ui.components
 	[Event(name="change",type="flash.events.Event")]
 	
 	/**文字标签*/
-	public class Label extends skinAdapter {
+	public class Label extends ComponentAdapter {
 		protected var _textField:TextField;
 		protected var _format:TextFormat;
 		protected var _text:String = "";
@@ -32,6 +32,13 @@ package phantom.ui.components
 		override protected function initializeSkin(skin:*):void 
 		{
 			_textField = skin;
+		}
+		/**
+		 * 同名但不同访问权限  @see ComponentAdapter .bindFont 
+		 * 
+		 */
+		public function bindFont():void
+		{
 			_format = _textField.defaultTextFormat;
 			_format.font = Styles.fontName;
 			_format.size = Styles.fontSize;

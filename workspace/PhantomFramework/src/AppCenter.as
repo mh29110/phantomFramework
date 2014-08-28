@@ -1,4 +1,5 @@
 package {
+	import flash.display.Stage;
 	import flash.utils.Dictionary;
 	
 	import phantom.core.consts.ManagerName;
@@ -9,6 +10,7 @@ package {
 	import phantom.core.managers.render.AssetManager;
 	import phantom.core.managers.render.LangManager;
 	import phantom.core.managers.render.RenderManager;
+	import phantom.core.managers.render.StageManager;
 	import phantom.core.managers.render.TipManager;
 	
 	/**
@@ -136,7 +138,11 @@ package {
 		{
 			return _lang;
 		}
-
+		
+		public function get stage():Stage
+		{
+			return (getManager(ManagerName.STAGE) as StageManager).stage;
+		}
 
 		//		private static var _dialog:DialogManager = new DialogManager();
 

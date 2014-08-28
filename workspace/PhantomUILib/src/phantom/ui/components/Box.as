@@ -6,14 +6,14 @@ package phantom.ui.components
     import phantom.core.interfaces.IDispose;
     import phantom.interfaces.IBox;
     
-    public class Box extends skinAdapter implements IBox
+    public class Box extends ComponentAdapter implements IBox
     {
-        private var _adapterList:Vector.<skinAdapter>;
+        private var _adapterList:Vector.<ComponentAdapter>;
         private var _container:DisplayObjectContainer;
         
         public function Box(skin:*)
         {
-            _adapterList = new Vector.<skinAdapter>();
+            _adapterList = new Vector.<ComponentAdapter>();
             super(skin);
         }
         
@@ -137,7 +137,7 @@ package phantom.ui.components
          * @param adapter ui连接器
 		 * 为了在destruct时dispose.
          */
-        protected function addAdapter(adapter:skinAdapter):void
+        protected function addAdapter(adapter:ComponentAdapter):void
         {
             if(adapter && _adapterList.indexOf(adapter)<0)
             {
@@ -149,7 +149,7 @@ package phantom.ui.components
          * 移除ui连接器
          * @param adapter ui连接器
          */
-        protected function removeAdapter(adapter:skinAdapter):Boolean
+        protected function removeAdapter(adapter:ComponentAdapter):Boolean
         {
             if(adapter)
             {

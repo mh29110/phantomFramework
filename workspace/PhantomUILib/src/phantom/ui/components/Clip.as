@@ -12,7 +12,7 @@ package phantom.ui.components
 	[Event(name="frameChanged",type="morn.core.events.UIEvent")]
 	
 	/**位图剪辑*/
-	public class Clip extends skinAdapter 
+	public class Clip extends ComponentAdapter 
 	{
 		protected var _autoStopAtRemoved:Boolean = true;
 		protected var _clipWidth:Number;

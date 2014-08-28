@@ -4,7 +4,8 @@
 CLOSED: [2014-08-28 Thu 15:28]
 - State "DONE"       from ""           [2014-08-28 Thu 15:28]
 *** skin adapter 
-disable with ObjectUtils.gray
+- disable with ObjectUtils.gray
+- dataSource setting . great feature to setting property. :important: 
 *** button
 - disable setter/getter,
 - selected ,
@@ -15,6 +16,9 @@ disable with ObjectUtils.gray
 *** clip 
 *** box
 *** label
+*** textInput
+*** slider  --
+*** TODO add scrollBar 
 ** DONE  optimize  eventDispatcher with primitive displayeObject           :important: :event-tag:
 CLOSED: [2014-08-28 Thu 15:27]
 - State "DONE"       from ""           [2014-08-28 Thu 15:27]

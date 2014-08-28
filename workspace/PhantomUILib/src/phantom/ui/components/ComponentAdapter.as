@@ -6,7 +6,6 @@ package phantom.ui.components
     import flash.display.MovieClip;
     import flash.display.Sprite;
     import flash.events.Event;
-    import flash.events.EventDispatcher;
     import flash.events.MouseEvent;
     import flash.geom.Point;
     import flash.text.AntiAliasType;
@@ -19,10 +18,11 @@ package phantom.ui.components
     import phantom.core.interfaces.IDispose;
     import phantom.core.ns.PhantomInternalNamespace;
     import phantom.core.utils.ObjectUtils;
+    import phantom.interfaces.IComponent;
     
     
 	use namespace PhantomInternalNamespace;
-    public class skinAdapter implements IDispose
+    public class ComponentAdapter implements IComponent,IDispose
 	{
         private var _eventList:Vector.<String>;
         private var _eventFunctionList:Vector.<Function>;
@@ -32,8 +32,9 @@ package phantom.ui.components
 		protected var _toolTip:Object;
 		protected var _disabled:Boolean;
 		private var _mouseChildren:Boolean;
+		protected var _dataSource:Object;
         
-        public function skinAdapter(skin:*)
+        public function ComponentAdapter(skin:*)
         {
             _eventList = new Vector.<String>();
             _eventFunctionList = new Vector.<Function>();
@@ -139,6 +140,28 @@ package phantom.ui.components
 		
 		public function set mouseChildren(value:Boolean):void {
 			_mouseChildren = _view.mouseChildren = value;
+		}
+		
+		/**数据赋值，通过对UI赋值来控制UI显示逻辑
+		 * 简单赋值会更改组件的默认属性，使用大括号可以指定组件的任意属性进行赋值
+		 * @example label1和checkbox1分别为组件实例的name属性
+		 * <listing version="3.0">
+		 * //默认属性赋值(更改了label1的text属性，更改checkbox1的selected属性)
+		 * dataSource = {label1: "改变了label", checkbox1: true}
+		 * //任意属性赋值
+		 * dataSource = {label2: {text:"改变了label",size:14}, checkbox2: {selected:true,x:10}}
+		 * </listing>*/
+		public function get dataSource():Object {
+			return _dataSource;
+		}
+		
+		public function set dataSource(value:Object):void {
+			_dataSource = value;
+			for (var prop:String in _dataSource) {
+				if (hasOwnProperty(prop)) {
+					this[prop] = _dataSource[prop];
+				}
+			}
 		}
 //---------------------------------------------------uncheck---------------------------------------------------------------------------------		
         /**
