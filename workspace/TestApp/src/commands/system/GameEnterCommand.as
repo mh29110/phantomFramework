@@ -5,6 +5,8 @@ package commands.system
 	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.patterns.command.SimpleCommand;
 	
+	import view.consts.ScreenUIDefine;
+	
 	public class GameEnterCommand extends SimpleCommand
 	{
 		public function GameEnterCommand()
@@ -17,7 +19,7 @@ package commands.system
 //			var majorScreen:ScreenAdapterMediator = new ScreenAdapterMediator("majorscreen");
 //			facade.registerMediator(majorScreen);
 			
-			facade.sendNotification(CommandListSystem.OPEN_SCREEN, ["majorscreen"]);
+			facade.sendNotification(CommandListSystem.OPEN_SCREEN, [ScreenUIDefine.MajorScreen]);
 			
 			/*var serv:Service = Service.instance;
 			

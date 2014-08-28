@@ -10,6 +10,5 @@ package phantom.interfaces
 		function get isMajorScreen():Boolean;
 		function get onInitScreenAssets():Boolean;
 		function get initialized():Boolean;
-		function get controller():IScreenAdapater;
 	}
 }

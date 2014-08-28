@@ -1,5 +1,7 @@
 package phantom.ui.screen
 {
+    import flash.display.DisplayObject;
+    
     import org.puremvc.as3.patterns.mediator.Mediator;
     
     import phantom.core.consts.ManagerName;
@@ -8,21 +10,17 @@ package phantom.ui.screen
     import phantom.core.managers.render.StageManager;
     import phantom.interfaces.IScreenAdapater;
     import phantom.interfaces.IScreenAdapterMediator;
-    import phantom.interfaces.ISkinAdapter;
     import phantom.ui.flash.UIAssetLinker;
     import phantom.ui.flash.UIAssetNode;
     
     public class ScreenAdapterMediator extends Mediator implements IScreenAdapterMediator
     {
-        private var _screenControllerDefine:Class;
         private var _screenDefineId:String;
         private var _isDisposed:Boolean;
         private var _initialized:Boolean;
         private var _screenAdapter:IScreenAdapater;
         private var _isMajorScreen:Boolean;
         private var _onInitScreenAssets:Boolean;
-        private var _isShowing:Boolean;
-        
         /**
          * 构造
          * @param name        
@@ -34,28 +32,20 @@ package phantom.ui.screen
             prepareScreenAsset(name, controller);
         }
         
-        protected function prepareScreenAsset(screenDefineId:String = null, controller:*=null):void
+		/**
+		 * 一种直接创建mediator的方式,一般采用@see OpenScreenCommand 的方式,避免这种直接创建.
+		 * @param screenDefineId
+		 * @param controller
+		 * 
+		 */
+        protected function prepareScreenAsset(screenDefineId:String = null, adapter:*=null):void
         {
             _screenDefineId = screenDefineId;
-            if(controller != null)
+            if(adapter != null)
             {
-                switch(true)
-                {
-                    default:
-                    case controller is Class:
-                    {
-                        _screenControllerDefine = controller;
-                        break;
-                    }
-                        
-                    case controller is ISkinAdapter:
-                    {
-                        _screenAdapter = controller;
-                        viewComponent = _screenAdapter;
-                        initDataAndShow();
-                        break;
-                    }
-                }
+                _screenAdapter = adapter;
+                viewComponent = _screenAdapter;// from mediator's content
+                initDataAndShow();
             }
         }
         
@@ -115,6 +105,7 @@ package phantom.ui.screen
 			if(!_screenAdapter)
 			{
 				_screenAdapter = uiAssetNode.getUIController() as IScreenAdapater;
+				viewComponent = _screenAdapter;// from mediator's content
 				initDataAndShow();
 			}
 		}
@@ -127,12 +118,16 @@ package phantom.ui.screen
 			initialize();
 		}
 		
+		/**
+		 * 所有资源已就位 
+		 * 在子类中覆写此方法进行初始化操作.
+		 */
         protected function initialize():void
         {
 			var app:AppCenter = AppCenter.instance;
             var stageManager:StageManager = app.getManager(ManagerName.STAGE) as StageManager;
 			var layer:LayerManager = app.getManager(ManagerName.LAYER) as LayerManager;
-			layer.addToLayerAt(controller.view,LayerManager.SCREEN_LAYER);
+			layer.addToLayerAt(adapter.view,LayerManager.SCREEN_LAYER);
         }
         
 		/**
@@ -147,42 +142,9 @@ package phantom.ui.screen
 			trace("ScreenAdapterMediator.initMediator(arg)");
 		}
 		
-		public function tick(delta:Number):void
-		{
-			//            if(_onInitScreenAssets && _assetsLoaderQueue) 
-			//            {
-			//                var busyIndicateServ:BusyIndicateService = Service.instance.getService(ServiceGuids.BUSY_INDICATE_SERVICE) as BusyIndicateService;
-			//                busyIndicateServ.updatePercentMe(_assetsLoaderQueue.loadPercent);
-			//            }
-			//            if(_isCheckBot)
-			//            {
-			//                _botCounter.tick(delta);
-			//                if(_botCounter.expired)
-			//                {
-			//                    checkShadowBot();
-			//                    
-			//                    _botCounter.initialize();
-			//                    _botCounter.reset(ShadowBotConsts.DELAY);
-			//                }
-			//            }
-		}
-		
-		public function checkScreenMediatorExist(screenId:String):Boolean
-		{
-			return Boolean(facade.retrieveMediator(screenId) != null);
-		}
-		
 		public function closeScreen():void
 		{
-			//            sendNotification(CommandSystemOrder.CLOSE_SCREEN, this);
-		}
-		
-		protected function initChildControllerMediator(childController:ScreenAdapter, mediatorClassDefine:Class):*
-		{
-			var id:String = _screenAdapter.name + "." + childController.name;
-			var mediator:ScreenAdapterMediator = new mediatorClassDefine(id, childController);
-			facade.registerMediator(mediator);
-			return mediator;
+			
 		}
 		
         protected function showScreenView():void
@@ -198,27 +160,6 @@ package phantom.ui.screen
 //            }
         }
         
-        
-		protected function destruct():void
-		{
-			//            if(_screenController)
-			//            {
-			//                _screenController.dispose();
-			//            }
-			//            facade.removeMediator(getMediatorName());
-		}
-		
-		public function dispose():void
-		{
-			//            sendNotification(CommandSystemOrder.SCREEN_CLOSED, _screenDefineId);
-			//            sendNotification(CommandSystemOrder.SCREEN_CLOSED+_screenDefineId);
-			if( _isDisposed == false )
-			{
-				_isDisposed = true;
-				destruct();
-			}
-		}
-		
 		public function activeScreen():void
 		{
 			_screenAdapter.visible = true;
@@ -236,6 +177,24 @@ package phantom.ui.screen
 				//                sendNotification(CommandSystemOrder.SCREEN_SERVICE_POP, [ _screenController ] );
 			}
 		}
+
+		protected function destruct():void
+		{
+			//            if(_screenController)
+			//            {
+			//                _screenController.dispose();
+			//            }
+			//            facade.removeMediator(getMediatorName());
+		}
+		
+		public function dispose():void
+		{
+			if( _isDisposed == false )
+			{
+				_isDisposed = true;
+				destruct();
+			}
+		}
 		
 		
         public function get isMajorScreen():Boolean
@@ -243,19 +202,14 @@ package phantom.ui.screen
             return _isMajorScreen;
         }
         
-        public function get controller():IScreenAdapater
-        {
-            return _screenAdapter;
-        }
+		public function get adapter():ScreenAdapter
+		{	
+			return _screenAdapter as ScreenAdapter;
+		}
         
         public function get isDisposed():Boolean
         {
             return _isDisposed;
-        }
-        
-        public function get couldTick():Boolean
-        {
-            return true;
         }
         
         public function get onInitScreenAssets():Boolean
@@ -266,11 +220,6 @@ package phantom.ui.screen
         public function get initialized():Boolean
         {
             return _initialized;
-        }
-        
-        protected function setIsMajorScreen(value:Boolean):void
-        {
-            _isMajorScreen = value;
         }
     }
 }

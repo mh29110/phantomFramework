@@ -1,3 +1,13 @@
+//log
+* 8.28
+** components 
+*** button
+*** clip 
+** todo optimize  eventDispatcher with primitive displayeObject  :todo:
+
+
+
+
 * phantom framework
 ** UILib
 *** uiAssetLinker
@@ -13,6 +23,7 @@
 **** Deferred Shading  with skinAdapter , using invalidation
 CLOSED: [2014-08-27 Wed 11:23]
 - State "DONE"       from ""           [2014-08-27 Wed 11:23]
+
 ** main
 *** preloader ,initer and gameStage loaded.
 *** facade install
@@ -21,3 +32,4 @@ CLOSED: [2014-08-27 Wed 11:23]
 *** socket manager
 *** process socket packet
 *** TODO use protobuf 
+

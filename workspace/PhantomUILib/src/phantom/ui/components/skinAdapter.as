@@ -30,7 +30,7 @@ package phantom.ui.components
         private var _view:MovieClip;
         private var _isDisposed:Boolean;
 		protected var _toolTip:Object;
-		private var _disabled:Boolean;
+		protected var _disabled:Boolean;
 		private var _mouseChildren:Boolean;
         
         public function skinAdapter(skin:*)

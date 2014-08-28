@@ -135,6 +135,7 @@ package phantom.ui.components
         /**
          * 增加ui连接器
          * @param adapter ui连接器
+		 * 为了在destruct时dispose.
          */
         protected function addAdapter(adapter:skinAdapter):void
         {
