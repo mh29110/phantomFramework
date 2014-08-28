@@ -2,7 +2,6 @@
 <flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
   <includeClasses>
     <classEntry path="phantom.consts.DefaultFontConfig"/>
-    <classEntry path="phantom.ui.components.UIComponent"/>
     <classEntry path="phantom.interfaces.IScreenAdapterMediator"/>
     <classEntry path="phantom.interfaces.IScreenAdapater"/>
     <classEntry path="phantom.ui.screen.CloseScreenCommand"/>

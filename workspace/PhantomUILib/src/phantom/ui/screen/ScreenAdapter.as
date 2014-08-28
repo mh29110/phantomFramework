@@ -7,7 +7,7 @@ package phantom.ui.screen
     import phantom.core.managers.render.StageManager;
     import phantom.interfaces.IScreenAdapater;
     import phantom.interfaces.IScreenAdapterMediator;
-    import phantom.ui.components.Box;
+    import phantom.components.Box;
     
     public class ScreenAdapter extends Box implements IScreenAdapater
     {

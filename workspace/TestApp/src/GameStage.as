@@ -7,16 +7,10 @@ package
     import flash.external.ExternalInterface;
     import flash.system.Security;
     
-    import commands.consts.CommandListSystem;
-    import commands.system.GameEnterCommand;
-    import commands.system.GameStartupCommand;
-    
-    import org.puremvc.as3.interfaces.IFacade;
-    import org.puremvc.as3.patterns.facade.Facade;
-    
     import phantom.core.consts.ManagerName;
     import phantom.core.managers.render.LayerManager;
     
+    import splash.AppFacade;
     import splash.VersionSprite;
     
     public class GameStage extends VersionSprite
@@ -96,19 +90,12 @@ package
             stage.addEventListener(Event.RESIZE, onResize);
             onResize();
             
-            var facade:IFacade = Facade.getInstance();
-            facade.registerCommand(CommandListSystem.START_UP, GameStartupCommand);
-            facade.registerCommand(CommandListSystem.ENTER_GAME, GameEnterCommand);
-//            facade.registerCommand(CommandServerOrder.GET_PLAYER_INFO, GetPlayerInfoCommand);
-//            facade.registerCommand(CommandSystemOrder.ON_PLAYER_INFO_INITIALIZED, GameAssetPrepareCommand);
-            
+           	AppFacade.getInstance().startUp(this);//初始化命令并启动
+         
 //            var networkServ:NetworkService = Service.instance.getService(ServiceGuids.NETWORK_SERVICE) as NetworkService;
 //            networkServ.addEventListener(NetworkServiceEvent.SERVER_DISCONNECTED, onServerDisconnected);
             
-            //启动项目
-            facade.sendNotification( CommandListSystem.START_UP, this);
-			facade.sendNotification( CommandListSystem.ENTER_GAME);
-			
+        			
 //            facade.sendNotification(CommandServerOrder.GET_PLAYER_INFO, this);
             
             /*战斗资源缓存*/

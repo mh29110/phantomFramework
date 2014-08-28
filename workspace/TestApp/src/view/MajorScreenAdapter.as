@@ -4,8 +4,8 @@ package view
 	import flash.display.Sprite;
 	
 	import phantom.core.handlers.Handler;
-	import phantom.ui.components.Button;
-	import phantom.ui.components.ScrollBar;
+	import phantom.components.Button;
+	import phantom.components.ScrollBar;
 	import phantom.ui.screen.ScreenAdapter;
 	
 	public class MajorScreenAdapter extends ScreenAdapter

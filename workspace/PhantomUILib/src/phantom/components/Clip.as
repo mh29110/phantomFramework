@@ -1,4 +1,4 @@
-package phantom.ui.components
+package phantom.components
 {
 	import flash.display.MovieClip;
 	import flash.events.Event;

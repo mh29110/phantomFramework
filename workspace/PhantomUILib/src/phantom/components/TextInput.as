@@ -1,4 +1,4 @@
-package phantom.ui.components
+package phantom.components
 {
 	import flash.events.Event;
 	import flash.events.TextEvent;

@@ -21,7 +21,6 @@ package
 	
 	import phantom.core.consts.ManagerName;
 	import phantom.core.handlers.Handler;
-	import phantom.core.managers.render.LayerManager;
 	import phantom.core.managers.render.RenderManager;
 	import phantom.core.managers.render.StageManager;
 	

@@ -8,7 +8,7 @@ package phantom.ui.flash
     
     import phantom.core.handlers.Handler;
     import phantom.interfaces.IBox;
-    import phantom.ui.components.Box;
+    import phantom.components.Box;
     
     
     [Event(name="complete", type="flash.events.Event")]

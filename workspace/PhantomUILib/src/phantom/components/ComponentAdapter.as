@@ -1,4 +1,4 @@
-package phantom.ui.components
+package phantom.components
 {
     import flash.display.DisplayObject;
     import flash.display.DisplayObjectContainer;

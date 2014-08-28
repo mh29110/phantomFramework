@@ -1,4 +1,4 @@
-package phantom.ui.components
+package phantom.components
 {
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
@@ -7,8 +7,8 @@ package phantom.ui.components
 	import flash.geom.Rectangle;
 	
 	import phantom.core.handlers.Handler;
-	import phantom.ui.components.Button;
-	import phantom.ui.components.Label;
+	import phantom.components.Button;
+	import phantom.components.Label;
 	
 	/**滑动条变化后触发*/
 	[Event(name="change",type="flash.events.Event")]
