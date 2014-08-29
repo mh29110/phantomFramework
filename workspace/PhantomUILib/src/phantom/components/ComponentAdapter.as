@@ -250,7 +250,6 @@ package phantom.components
                 _view = skin;
             }
             initializeSkin(skin);
-			this.toolTip = "fffffff";
 			skin.dispatchEvent(new Event(Event.INIT));
         }
         

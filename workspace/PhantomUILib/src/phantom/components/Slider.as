@@ -7,8 +7,6 @@ package phantom.components
 	import flash.geom.Rectangle;
 	
 	import phantom.core.handlers.Handler;
-	import phantom.components.Button;
-	import phantom.components.Label;
 	
 	/**滑动条变化后触发*/
 	[Event(name="change",type="flash.events.Event")]
@@ -33,8 +31,22 @@ package phantom.components
 			super(skin);
 		}
 		
+		/**
+		 * 设置滑值范围.
+		 * @param min
+		 * @param max
+		 * @param value
+		 * 
+		 */
+		public function setSlider(min:Number, max:Number, value:Number):void {
+			_value = -1;
+			_min = min;
+			_max = max > min ? max : min;
+			this.value = value < min ? min : value > max ? max : value;
+		}
+		
 		override protected function initializeSkin(skin:*):void {
-			_back = getMcPath("track");
+			_back = getMcPath("btn_track");
 			_trackBar = new Button(getMcPath("btn_thumb"));
 			_trackBar.addEventListener(MouseEvent.MOUSE_DOWN, onButtonMouseDown);
 			allowBackClick = false;
@@ -99,20 +111,6 @@ package phantom.components
 			} else {
 				_trackBar.x = (_value - _min) / (_max - _min) * (width - _trackBar.width);
 			}
-		}
-		
-		/**
-		 * 设置滑值范围.
-		 * @param min
-		 * @param max
-		 * @param value
-		 * 
-		 */
-		public function setSlider(min:Number, max:Number, value:Number):void {
-			_value = -1;
-			_min = min;
-			_max = max > min ? max : min;
-			this.value = value < min ? min : value > max ? max : value;
 		}
 		
 		/**刻度值,默认值为1,单位大小*/
