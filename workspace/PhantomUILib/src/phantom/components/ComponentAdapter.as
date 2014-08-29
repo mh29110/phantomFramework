@@ -373,14 +373,14 @@ package phantom.components
          * @param callback          回调方式
          * @param args              参数
          */        
-        protected function excuteCallback(callback:Function, ...args):*
-        {
-            if(callback != null)
-            {
-                args.length = callback.length
-                return callback.apply(null, args);
-            }
-        }
+//        protected function excuteCallback(callback:Function, ...args):*
+//        {
+//            if(callback != null)
+//            {
+//                args.length = callback.length
+//                return callback.apply(null, args);
+//            }
+//        }
         
         /**
          * 绑定文本元件字体

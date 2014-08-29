@@ -253,7 +253,6 @@ package phantom.components
 		}
 		
 		protected function onTargetMouseDown(e:MouseEvent):void {
-			//_target.mouseChildren = true;
 			AppCenter.instance.timer.clearTimer(tweenMove);
 			if (!(view as DisplayObjectContainer).contains(e.target as DisplayObject)) {
 				AppCenter.instance.stage.addEventListener(MouseEvent.MOUSE_UP, onStageMouseUp2);
@@ -267,7 +266,6 @@ package phantom.components
 			if (Math.abs(_lastOffset) >= 1) {
 				_lastPoint.x = AppCenter.instance.stage.mouseX;
 				_lastPoint.y = AppCenter.instance.stage.mouseY;
-				//_target.mouseChildren = false;
 				value -= _lastOffset;
 			}
 		}

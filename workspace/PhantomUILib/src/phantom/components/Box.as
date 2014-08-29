@@ -114,24 +114,6 @@ package phantom.components
             _container = skin;
         }
         
-        override protected function destruct():void
-        {
-            super.destruct();
-            
-            var disposeNode:IDispose;
-            if(_adapterList)
-            {
-                while(_adapterList.length)
-                {
-                    disposeNode = _adapterList.pop() as IDispose;
-                    if(disposeNode)
-                    {
-                        disposeNode.dispose();
-                    }
-                }
-            }
-        }
-        
         /**
          * 增加ui连接器
          * @param adapter ui连接器
@@ -193,6 +175,23 @@ package phantom.components
         {
             return _container;
         }
-        
+		
+		override protected function destruct():void
+		{
+			super.destruct();
+			
+			var disposeNode:IDispose;
+			if(_adapterList)
+			{
+				while(_adapterList.length)
+				{
+					disposeNode = _adapterList.pop() as IDispose;
+					if(disposeNode)
+					{
+						disposeNode.dispose();
+					}
+				}
+			}
+		}
     }
 }

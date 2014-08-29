@@ -1,4 +1,10 @@
 //log
+* 8.29
+** components
+*** fixed List without scroll
+*** TODO  listFactory
+*** TODO slide List
+*** notice :  using Handler instead of Function .so it can execute with arguments . 
 * 8.28
 ** DONE components 
 CLOSED: [2014-08-28 Thu 15:28]

@@ -6,6 +6,9 @@
     <classEntry path="phantom.interfaces.IScreenAdapater"/>
     <classEntry path="phantom.ui.screen.CloseScreenCommand"/>
     <classEntry path="phantom.interfaces.IComponent"/>
+    <classEntry path="phantom.components.list.FixedList"/>
+    <classEntry path="phantom.components.list.SlideList"/>
+    <classEntry path="phantom.components.list.ListFactory"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

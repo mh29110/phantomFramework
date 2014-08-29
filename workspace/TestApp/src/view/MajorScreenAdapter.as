@@ -1,11 +1,11 @@
 package view
 {
 	import flash.display.MovieClip;
-	import flash.display.Sprite;
 	
-	import phantom.core.handlers.Handler;
 	import phantom.components.Button;
-	import phantom.components.ScrollBar;
+	import phantom.components.list.FixedList;
+	import phantom.core.handlers.Handler;
+	import phantom.components.list.data.DataProvider;
 	import phantom.ui.screen.ScreenAdapter;
 	
 	public class MajorScreenAdapter extends ScreenAdapter
@@ -13,7 +13,6 @@ package view
 
 		private var confirm:Button;
 
-		private var scroll:ScrollBar;
 		public function MajorScreenAdapter(skin:MovieClip=null)
 		{
 			super(skin);
@@ -26,19 +25,18 @@ package view
 			confirm.clickHandler = new Handler(onClick);
 			addAdapter(confirm);
 			
-			scroll = new ScrollBar(getMcPath("mc_scroll"));
-			scroll.setScroll(0,100,0);
-			scroll.target = confirm.view as Sprite;
-			scroll.changeHandler = new Handler(onChangeSlider);
+			var list:FixedList = new FixedList(getMcPath("list.mc_list"));
+			list.data = new DataProvider([0,1,2,3,4,5]);
+			list.clickHandler = new Handler(onClick);
 		}
 		
 		private function onChangeSlider(value:*):void
 		{
 			trace(value);
 		}
-		private function onClick():void
+		private function onClick(data:*,v:*):void
 		{
-			trace("d.onClick()",confirm.selected);
+			trace("d.onClick()",data,v);
 		}
 	}
 }
