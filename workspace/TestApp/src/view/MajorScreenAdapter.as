@@ -1,15 +1,9 @@
 package view
 {
-	import flash.display.InteractiveObject;
 	import flash.display.MovieClip;
-	import flash.display.Sprite;
 	
 	import phantom.components.Button;
-	import phantom.components.HSlider;
-	import phantom.components.ScrollBar;
-	import phantom.components.Slider;
-	import phantom.components.VScrollBar;
-	import phantom.components.list.FixedList;
+	import phantom.components.list.List;
 	import phantom.components.list.data.DataProvider;
 	import phantom.core.handlers.Handler;
 	import phantom.ui.screen.ScreenAdapter;
@@ -28,17 +22,17 @@ package view
 		{
 			super.initializeSkin(skin);
 			confirm = new Button(getMcPath("btn_confirm"));
-			confirm.clickHandler = new Handler(onClick);
+			confirm.clickHandler = new Handler(onClickBtn);
 			addAdapter(confirm);
 			
-			var list:FixedList = new FixedList(getMcPath("list.mc_list"));
-			list.data = new DataProvider([3,1,2,3,4,5,1,2,3,4,5,6,7,8,8,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,,2,2,2,2,2,2,2,2,2,2,2,2,1,3,3,3,3,3,3,1,3,3,4,,4,3,3,3,45]);
+			var list:List = new List(getMcPath("list"),myRender,6);
+			list.data = new DataProvider([3,1,2,3,4,5,1,2,3,4,5,6,7,8,8,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,100,2,2,2,2,2,2,2,2,2,2,2,2,1,3,3,3,3,3,3,1,3,3,4,1,4,3,3,3,45,1,9]);
 			list.clickHandler = new Handler(onClick);
-			
-			var scroll:ScrollBar = new VScrollBar(getMcPath("list.mc_scroll"));
-			scroll.setScroll(0,100,0);
-			scroll.target = list.view  as Sprite;
-			scroll.changeHandler = new Handler(onChangeSlider);
+		}
+		
+		private function onClickBtn():void
+		{
+			trace("btn.click");			
 		}
 		
 		private function onChangeSlider(value:*):void
@@ -48,6 +42,35 @@ package view
 		private function onClick(data:*,v:*):void
 		{
 			trace("d.onClick()",data,v);
+		}
+	}
+}
+import phantom.components.Label;
+import phantom.components.list.data.DefaultItemRenderer;
+
+class myRender extends DefaultItemRenderer
+{
+	public function myRender(skin:*)
+	{
+		super(skin);
+	}
+	private var _txt:Label;
+	override protected function initializeSkin(skin:*):void
+	{
+		super.initializeSkin(skin);
+		_txt = new Label(getTextField("txt"));	
+	}
+	
+	override protected function refreshData():void
+	{
+		if(data)
+		{
+			_txt.text = data + "";
+			visible = true;
+		}
+		else
+		{
+			visible = false;
 		}
 	}
 }

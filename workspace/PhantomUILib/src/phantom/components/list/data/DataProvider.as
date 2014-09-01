@@ -54,7 +54,7 @@ package phantom.components.list.data
          * @playerversion Flash 9.0.28.0
          * @playerversion AIR 1.0         * @productversion Flash CS3
          */
-        public function get length():uint 
+        public function get dataLen():uint 
         {
             return _data.length;
         }

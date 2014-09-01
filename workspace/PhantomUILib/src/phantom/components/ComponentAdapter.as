@@ -27,7 +27,7 @@ package phantom.components
         private var _eventList:Vector.<String>;
         private var _eventFunctionList:Vector.<Function>;
         private var _eventUseCaptureList:Vector.<Boolean>;
-        private var _view:MovieClip;
+        private var _view:DisplayObject;
         private var _isDisposed:Boolean;
 		protected var _toolTip:Object;
 		protected var _disabled:Boolean;
@@ -46,6 +46,30 @@ package phantom.components
             }
         }
         
+		public function initialize(skin:*):void
+		{
+			if(!skin)
+			{
+				throw new Error("需要一个显示对象做为视图");
+			}
+			if(skin/* is MovieClip*/)
+			{
+				_view = skin;
+			}
+			initializeSkin(skin);
+			skin.dispatchEvent(new Event(Event.INIT));
+		}
+		
+		/**
+		 * 初始化皮肤
+		 * @param skin     皮肤 
+		 * 
+		 */        
+		protected function initializeSkin(skin:*):void
+		{
+			
+		}
+		
 		/**鼠标提示
 		 * 可以赋值为文本及函数，以实现自定义样式的鼠标提示和参数携带等
 		 * @example 下面例子展示了三种鼠标提示
@@ -133,13 +157,13 @@ package phantom.components
 			if (_disabled != value) {
 				_disabled = value;
 				mouseEnabled = !value;
-				_view.mouseChildren = value ? false : _mouseChildren;
+				(_view as DisplayObjectContainer).mouseChildren = value ? false : _mouseChildren;
 				ObjectUtils.gray(_view, _disabled);
 			}
 		}
 		
 		public function set mouseChildren(value:Boolean):void {
-			_mouseChildren = _view.mouseChildren = value;
+			_mouseChildren = (_view as DisplayObjectContainer).mouseChildren = value;
 		}
 		
 		/**数据赋值，通过对UI赋值来控制UI显示逻辑
@@ -238,21 +262,7 @@ package phantom.components
             _eventFunctionList.splice(index,1);
             _eventUseCaptureList.splice(index,1);
         }
-        
-        public function initialize(skin:*):void
-        {
-            if(!skin)
-            {
-                throw new Error("需要一个显示对象做为视图");
-            }
-            if(skin is MovieClip)
-            {
-                _view = skin;
-            }
-            initializeSkin(skin);
-			skin.dispatchEvent(new Event(Event.INIT));
-        }
-        
+ 
         protected function getEventListenerIndex(type:String, listener:Function, useCapture:Boolean = false):int
         {
             var eventIndex:int;
@@ -303,24 +313,13 @@ package phantom.components
         }
         
         /**
-         * 初始化皮肤
-         * @param skin     皮肤 
-         * 
-         */        
-        protected function initializeSkin(skin:*):void
-        {
-            
-        }
-        
-        
-        /**
          * 取得一个影片剪辑对象
          * @param name      剪辑的名字
          * @return 
          */        
         protected function getMovieClip(name:String):MovieClip
         {
-            return getDisplayObj(name, _view);
+            return getDisplayObj(name, _view as DisplayObjectContainer);
         }
         
         /**
@@ -330,7 +329,7 @@ package phantom.components
          */        
         protected function getTextField(name:String):TextField
         {
-            return getDisplayObj(name, _view);
+            return getDisplayObj(name, _view as DisplayObjectContainer);
         }
         
         /**
@@ -342,7 +341,7 @@ package phantom.components
         protected function getMcPath(path:String):MovieClip
         {
             var tempArr:Array = path.split(".");
-            var mc:MovieClip = _view;
+            var mc:MovieClip = _view as MovieClip;
             for(var i:int=0;i<tempArr.length;i++)
             {
                 mc= getDisplayObj(tempArr[i], mc);

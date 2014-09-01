@@ -1,8 +1,10 @@
-package phantom.components.list
+package trash
 {
+	import flash.display.InteractiveObject;
 	import flash.display.MovieClip;
 	
 	import phantom.components.Box;
+	import phantom.components.ScrollBar;
 	import phantom.components.list.data.DataProvider;
 	import phantom.components.list.data.DefaultItemRenderer;
 	import phantom.components.list.events.DataChangeEvent;
@@ -11,12 +13,14 @@ package phantom.components.list
 	import phantom.interfaces.IItemRenderer;
 
 	/**
+	 * UI设计在flash中固定的list,自带滚动条,但是无法平滑滑动内容.
 	 * 采用复用ItemRender的方式来渲染内容.
+	 * 另参见 @SlideList
+	 * @author liphantomjia@gmail.com
 	 * 必须包含组件:<br>
 	 * 列表元件0~n(mc_item_[0~n])
-	 * @author liphantomjia@gmail.com
 	 */
-	public class FixedList extends Box
+	public class FixedListCopy extends Box
 	{
 		private var _data:DataProvider;
 		private var _itemRendererClassDefine:Class;
@@ -33,13 +37,17 @@ package phantom.components.list
 		private var _maxSelectedCount:int;
 		private var _clickHandler:Handler;
 		
+		private var _scrollBar:ScrollBar;
+		
+		private var PREFIX_LIST:String = "mc_list.";
+		
 		/**
 		 * 构造
 		 * @param skin                      皮肤
 		 * @param itemIndex                 (default: "mc_item") 列表元素索引前缀
 		 * @param itemRenderClassDefine     (default: components.itemRenderer.DefaultItemRenderer) 列表内容渲染控制类
 		 */        
-		public function FixedList(skin:*, itemRendererClassDefine:Class = null, itemIndex:String = "mc_item")
+		public function FixedListCopy(skin:*, itemRendererClassDefine:Class = null, itemIndex:String = "mc_item")
 		{
 			if(itemRendererClassDefine == null)
 			{
@@ -62,7 +70,7 @@ package phantom.components.list
 			var index:int = 0;
 			while(true)
 			{
-				mc = getMcPath(_itemIndex + "_" + index++);
+				mc = getMcPath(PREFIX_LIST+_itemIndex + "_" + index++);
 				if(mc)
 				{
 					itemRender = new _itemRendererClassDefine(mc) as IItemRenderer;
@@ -77,9 +85,22 @@ package phantom.components.list
 				}
 			}
 			_listItemCount = _itemRenderList.length;
+			
+			_scrollBar = new ScrollBar(getMcPath("mc_scroll"));
+			addAdapter(_scrollBar);
+			_scrollBar.changeHandler = new Handler(onScrollChangeHandler);
+			_scrollBar.target = view as InteractiveObject;
+		}
+//------------------scroll related----------------------------------		
+		private function onScrollChangeHandler(value:Number):void
+		{
+			percent = value/_scrollBar.max;
 		}
 		
-
+		public function set percent(value:Number):void
+		{
+			listStartIndex = Math.max(0, Math.min(Math.round(maxScrollV*value), maxScrollV));
+		}
 //-------------------render -------------------------------------
 		override protected function render():void
 		{
@@ -425,7 +446,7 @@ package phantom.components.list
 			return _listItemCount;
 		}
 		
-		public function get maxScrollV():uint
+		private function get maxScrollV():uint
 		{
 			var dataLen:int;
 			if(data)

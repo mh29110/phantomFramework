@@ -1,4 +1,10 @@
 //log
+* 9.1
+** components 
+*** AutoBitmap
+*** using FrameClip instead of Clip in button
+*** refactor list and renderer
+*** add folder trash for trash files
 * 8.29
 ** components
 *** fixed List without scroll

@@ -29,7 +29,7 @@ package phantom.components.list.data
 			super.render();
 			if(_needRefreshData)
 			{
-				_needRefreshData = false
+				_needRefreshData = false;
 				refreshData();
 			}
 			
@@ -82,6 +82,5 @@ package phantom.components.list.data
 		{
 			//todo
 		}
-		
 	}
 }

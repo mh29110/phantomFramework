@@ -22,7 +22,7 @@ package phantom.components
 		protected var _skin:String;
 		protected var _stateNum:int = Styles.buttonStateNum;
 		
-		protected var _btnClip:Clip ;
+		protected var _btnClip:FrameClip ;
 		protected var _btnLabel:Label;
 		
 		public function Button(skin:*) 
@@ -32,7 +32,7 @@ package phantom.components
 		
 		override protected function initializeSkin(skin:*):void 
 		{
-			_btnClip = new Clip(skin);
+			_btnClip = new FrameClip(skin);
 			
 			if(skin is  MovieClip)
 			{	//尝试获取按钮文本

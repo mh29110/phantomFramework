@@ -6,12 +6,11 @@
     <classEntry path="phantom.interfaces.IScreenAdapater"/>
     <classEntry path="phantom.ui.screen.CloseScreenCommand"/>
     <classEntry path="phantom.interfaces.IComponent"/>
-    <classEntry path="phantom.components.list.FixedList"/>
+    <classEntry path="phantom.components.list.List"/>
     <classEntry path="phantom.components.list.SlideList"/>
     <classEntry path="phantom.components.list.ListFactory"/>
     <classEntry path="phantom.components.HSlider"/>
     <classEntry path="phantom.components.VSlider"/>
-    <classEntry path="phantom.components.VScrollBar"/>
     <classEntry path="phantom.components.HScrollBar"/>
   </includeClasses>
   <includeResources/>

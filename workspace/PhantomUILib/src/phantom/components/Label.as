@@ -31,11 +31,12 @@ package phantom.components
 		
 		override protected function initializeSkin(skin:*):void 
 		{
+			super.initializeSkin(skin);
 			_textField = skin;
 		}
 		/**
 		 * 同名但不同访问权限  @see ComponentAdapter .bindFont 
-		 * 
+		 * @notice 一般选择使用设备字体.
 		 */
 		public function bindFont():void
 		{
@@ -64,9 +65,17 @@ package phantom.components
 			}
 		}
 		
+		/**
+		 * 格式统一
+		 * 多语言配置
+		 * 
+		 */
 		protected function changeText():void
 		{
-			_textField.defaultTextFormat = _format;
+			if(_format)
+			{
+				_textField.defaultTextFormat = _format;
+			}
 			_isHtml ? _textField.htmlText =  AppCenter.instance.lang.getLang(_text) : _textField.text = AppCenter.instance.lang.getLang(_text);
 		}
 		

@@ -42,7 +42,7 @@ package phantom.components
 			_upButton = new Button(getMcPath("btn_up"));
 			_downButton = new Button(getMcPath("btn_down"));
 			_slider.addEventListener(Event.CHANGE, onSliderChange);
-			_slider.setSlider(0, 0, 0);//must call setScroll   to init slider
+			_slider.setSlider(0, 0, 0);//首先隐藏, 调用setScroll方法初始化,   比如在list中setter data后初始化.
 			_upButton.addEventListener(MouseEvent.MOUSE_DOWN, onButtonMouseDown);
 			_downButton.addEventListener(MouseEvent.MOUSE_DOWN, onButtonMouseDown);
 		}
@@ -189,6 +189,11 @@ package phantom.components
 			return _target;
 		}
 		
+		/**
+		 * 使得list支持鼠标滑轮滚动.
+		 * @param value
+		 * 
+		 */
 		public function set target(value:InteractiveObject):void {
 			if (_target) {
 				_target.removeEventListener(MouseEvent.MOUSE_WHEEL, onMouseWheel);
