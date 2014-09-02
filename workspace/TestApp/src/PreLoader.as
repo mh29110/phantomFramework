@@ -69,9 +69,8 @@ package
 			var stageManager:StageManager = new StageManager();
 			app.addManager(stageManager,ManagerName.STAGE);
 			stageManager.register(this);
-			var renderManager:RenderManager = new RenderManager();
-			app.addManager(renderManager,ManagerName.RENDER);
-			renderManager.register(this);
+
+			app.initManagers();
 
 			
 			// pattern one  flash vars  - by uqee.com

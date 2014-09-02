@@ -1,7 +1,6 @@
 package phantom.core.managers.render
 {
 	import flash.display.DisplayObject;
-	import flash.display.DisplayObjectContainer;
 	import flash.display.Sprite;
 	import flash.display.Stage;
 	import flash.geom.Rectangle;
@@ -30,18 +29,31 @@ package phantom.core.managers.render
 			_stageContainer = new Sprite();
 			_stage.addChild(_stageContainer);
 			
-			initLayers();
+			initLayers();//如果所有层次都确定,就不需要这些占位符了.
 		
-			addToLayerAt(AppCenter.instance.log.toggle(),LOG_LAYER);
-			addToLayerAt(AppCenter.instance.tip,TIP_LAYER);
+			addToLayerAt(AppCenter.instance.log.toggle(),LOG_LAYER,false);
+//			addToLayerAt(AppCenter.instance.dialog,DIALOG_LAYER);
+			addToLayerAt(AppCenter.instance.tip,TIP_LAYER,false);
 
 			onResize();
 		}
 		
-		public function addToLayerAt(display:DisplayObject,zdeep:int):void
+		public function addToLayerAt(display:DisplayObject,zdeep:int,closeOther:Boolean):void
 		{
 			var layer:Sprite = _stageContainer.getChildAt(zdeep) as Sprite;
+			if (closeOther) {
+				removeAllChild(layer);
+			}
 			layer.addChild(display);
+		}
+		
+		/**删除所有子显示对象
+		 * @param except 例外的对象(不会被删除)*/
+		public function removeAllChild(container:Sprite):void {
+			var numChildren:int = container.numChildren;
+			for (var i:int = numChildren - 1; i > -1; i--) {
+				container.removeChildAt(i);
+			}
 		}
 		
 		private function onResize():void

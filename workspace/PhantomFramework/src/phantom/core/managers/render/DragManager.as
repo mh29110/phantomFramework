@@ -8,14 +8,17 @@ package phantom.core.managers.render
 	import flash.geom.Point;
 	
 	import phantom.core.events.DragEvent;
+	import phantom.core.interfaces.IManager;
 	
 	/**拖动管理类*/
-	public class DragManager {
+	public class DragManager implements IManager
+	{
 		private var _dragInitiator:DisplayObject;
 		private var _dragImage:Sprite;
 		private var _data:*;
 		private var _stage:Stage;
-		public function DragManager(stage:Stage) {
+		public function DragManager(stage:Stage) 
+		{
 			_stage = stage;
 		}
 		
@@ -24,7 +27,8 @@ package phantom.core.managers.render
 		 * @param dragImage 显示拖动的图片，如果为null，则是源对象本身
 		 * @param data 拖动传递的数据
 		 * @param offset 鼠标居拖动图片的偏移*/
-		public function doDrag(dragInitiator:Sprite, dragImage:Sprite = null, data:* = null, offset:Point = null):void {
+		public function doDrag(dragInitiator:Sprite, dragImage:Sprite = null, data:* = null, offset:Point = null):void 
+		{
 			_dragInitiator = dragInitiator;
 			_dragImage = dragImage ? dragImage : dragInitiator;
 			_data = data;

@@ -13,5 +13,6 @@ package phantom.core.consts
 			    public static const LAYER:String 					= "layer manager";
 			    public static const RENDER:String 					= "render manager";
 			    public static const LANGUAGE:String 				= "language manager";
+			    public static const DRAG:String 					= "drag manager";
 	}
 }

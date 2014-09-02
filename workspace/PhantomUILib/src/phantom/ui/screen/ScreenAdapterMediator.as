@@ -127,7 +127,7 @@ package phantom.ui.screen
 			var app:AppCenter = AppCenter.instance;
             var stageManager:StageManager = app.getManager(ManagerName.STAGE) as StageManager;
 			var layer:LayerManager = app.getManager(ManagerName.LAYER) as LayerManager;
-			layer.addToLayerAt(adapter.view,LayerManager.SCREEN_LAYER);
+			layer.addToLayerAt(adapter.view,LayerManager.SCREEN_LAYER,true);
         }
         
 		/**

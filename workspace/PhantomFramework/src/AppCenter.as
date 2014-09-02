@@ -8,7 +8,9 @@ package {
 	import phantom.core.managers.LogManager;
 	import phantom.core.managers.TimerManager;
 	import phantom.core.managers.render.AssetManager;
+	import phantom.core.managers.render.DragManager;
 	import phantom.core.managers.render.LangManager;
+	import phantom.core.managers.render.LayerManager;
 	import phantom.core.managers.render.RenderManager;
 	import phantom.core.managers.render.StageManager;
 	import phantom.core.managers.render.TipManager;
@@ -24,6 +26,16 @@ package {
 		{
 			_managerMap = new Dictionary();
 			
+		}
+		
+		public function initManagers():void
+		{
+			var _stage:Stage = stage;
+			_render = new RenderManager();
+			addManager(_render , ManagerName.RENDER);
+			_render.register(stage);
+
+			
 			_lang = new LangManager();
 			_asset	= new AssetManager();
 			_loader	= new LoaderManager();
@@ -36,6 +48,9 @@ package {
 			addManager(_log, ManagerName.LOG);
 			addManager(_tip , ManagerName.TIP);
 			addManager(_lang, ManagerName.LANGUAGE);
+			
+			_drag = new DragManager(stage);
+			addManager(_drag,ManagerName.DRAG);
 		}
 
 
@@ -90,7 +105,11 @@ package {
 		private var _tip:TipManager;
 
 		private var _lang:LangManager;
-		
+
+		private var _render:RenderManager;
+
+		private var _drag:DragManager;
+
 		public static function get instance() : AppCenter
 		{
 			if (_instance == null)
@@ -142,6 +161,16 @@ package {
 		public function get stage():Stage
 		{
 			return (getManager(ManagerName.STAGE) as StageManager).stage;
+		}
+		
+		public function get layerManager():LayerManager
+		{
+			return (getManager(ManagerName.LAYER) as LayerManager);
+		}
+		
+		public function get drag():DragManager
+		{
+			return (getManager(ManagerName.DRAG) as DragManager);		
 		}
 
 		//		private static var _dialog:DialogManager = new DialogManager();

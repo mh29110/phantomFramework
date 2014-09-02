@@ -3,13 +3,14 @@ package phantom.ui.screen
     import flash.display.DisplayObjectContainer;
     import flash.display.MovieClip;
     
+    import phantom.components.Box;
+    import phantom.components.WindowBase;
     import phantom.core.consts.ManagerName;
     import phantom.core.managers.render.StageManager;
     import phantom.interfaces.IScreenAdapater;
     import phantom.interfaces.IScreenAdapterMediator;
-    import phantom.components.Box;
     
-    public class ScreenAdapter extends Box implements IScreenAdapater
+    public class ScreenAdapter extends WindowBase implements IScreenAdapater
     {
         private var _mediator:IScreenAdapterMediator
         private var _onCloseHandle:Function;

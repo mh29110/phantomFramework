@@ -32,8 +32,8 @@ package phantom.core.managers.render
 			_stage.dispatchEvent(new Event(UIEvent.RENDER_COMPLETED));
 		}
 		
-		public function register(main:Sprite):void {
-			_stage = main.stage;
+		public function register(stage:Stage):void {
+			_stage = stage;
 		}
 		/**执行所有延迟调用*/
 		public function renderAll():void {
