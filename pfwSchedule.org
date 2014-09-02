@@ -1,41 +1,41 @@
-//log
-* 9.2 
-** add windowbase
-*** using dragManager with windowBase
-*** close handler
-* 9.1
-** components 
-*** AutoBitmap
-*** using FrameClip instead of Clip in button
-*** refactor list and renderer
-*** add folder trash for trash files
-* 8.29
-** components
-*** fixed List without scroll
-*** TODO  listFactory
-*** TODO slide List
-*** notice :  using Handler instead of Function .so it can execute with arguments . 
-* 8.28
-** DONE components 
+* log
+** 9.2 
+*** add windowbase
+**** using dragManager with windowBase
+**** close handler
+** 9.1
+*** components 
+**** AutoBitmap
+**** using FrameClip instead of Clip in button
+**** refactor list and renderer
+**** add folder trash for trash files
+** 8.29
+*** components
+**** fixed List without scroll
+**** TODO  listFactory
+**** TODO slide List
+**** notice :  using Handler instead of Function .so it can execute with arguments . 
+** 8.28
+*** DONE components 
 CLOSED: [2014-08-28 Thu 15:28]
 - State "DONE"       from ""           [2014-08-28 Thu 15:28]
-*** skin adapter 
+**** skin adapter 
 - disable with ObjectUtils.gray
 - dataSource setting . great feature to setting property. :important: 
-*** button
+**** button
 - disable setter/getter,
 - selected ,
 - state ,
 - toggle
 - label with text "txt_label"
  
-*** clip 
-*** box
-*** label
-*** textInput
-*** slider  --
-*** TODO add scrollBar 
-** DONE  optimize  eventDispatcher with primitive displayeObject           :important: :event-tag:
+**** clip 
+**** box
+**** label
+**** textInput
+**** slider  --
+**** TODO add scrollBar 
+*** DONE  optimize  eventDispatcher with primitive displayeObject           :important: :event-tag:
 CLOSED: [2014-08-28 Thu 15:27]
 - State "DONE"       from ""           [2014-08-28 Thu 15:27]
 
@@ -65,5 +65,11 @@ CLOSED: [2014-08-27 Wed 11:23]
 ** networkLib
 *** socket manager
 *** process socket packet
-*** TODO use protobuf 
+*** TODO use protobuf
 
+
+*  agal  zest3d
+
+* greensock
+
+* render bitmap world

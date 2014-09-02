@@ -8,6 +8,7 @@
     <classEntry path="phantom.core.interfaces.conn.IProtocol"/>
     <classEntry path="phantom.core.socket.dataPackets.SocketPacket"/>
     <classEntry path="phantom.core.managers.render.LayerManager"/>
+    <classEntry path="phantom.core.animation.IAnimatable"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>
