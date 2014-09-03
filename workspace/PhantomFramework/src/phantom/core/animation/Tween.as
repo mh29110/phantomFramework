@@ -5,7 +5,7 @@ package phantom.core.animation
 	 * @author liphantomjia@gmail.com
 	 * 
 	 */
-    public class Tween
+    public class Tween implements IAnimatable
     {
         private var _target:Object;
         private var _transitionFunc:Function;
@@ -37,14 +37,20 @@ package phantom.core.animation
         private var _repeatDelay:Number;
         private var _reverse:Boolean;
         private var _currentCycle:int;
+		
         private var _isDisposed:Boolean;
         private var _couldTick:Boolean;
-        
+		/** Creates a tween with a target, duration (in seconds) and a transition function.
+		 *  @param target the object that you want to animate
+		 *  @param time the duration of the Tween (in seconds)
+		 *  @param transition can be either a String (e.g. one of the constants defined in the
+		 *         Transitions class) or a function. Look up the 'Transitions' class for a   
+		 *         documentation about the required function signature. */ 
         public function Tween(target:Object, time:Number, transition:Object="linear")        
         {
              reset(target, time, transition);
         }
-
+		/** Resets the tween to its default values. Useful for pooling tweens. */
         public function reset(target:Object, time:Number, transition:Object="linear"):Tween
         {
             _target = target;
@@ -80,7 +86,8 @@ package phantom.core.animation
             
             return this;
         }
-        
+		/** Animates the property of the target to a certain value. You can call this method multiple
+		 *  times on one tween. */
         public function animate(property:String, endValue:Number):void
         {
             if (_target == null) return; // tweening null just does nothing.
@@ -335,5 +342,27 @@ package phantom.core.animation
                 _couldTick = true;
             }
         }
+		
+		private static var sTweenPool:Vector.<Tween> = new <Tween>[];
+		
+		/** @private */
+		public static function fromPool(target:Object, time:Number, 
+												   transition:Object="linear"):Tween
+		{
+			if (sTweenPool.length) return sTweenPool.pop().reset(target, time, transition);
+			else return new Tween(target, time, transition);
+		}
+		
+		/** @private */
+		public static function toPool(tween:Tween):void
+		{
+			// reset any object-references, to make sure we don't prevent any garbage collection
+			tween.onStart = tween.onUpdate = tween.onRepeat = tween.onComplete = null;
+			tween.onStartArgs = tween.onUpdateArgs = tween.onRepeatArgs = tween.onCompleteArgs = null;
+//			tween.target = null;
+			tween.transitionFunc = null;
+//			tween.removeEventListeners();//necessary to extends EventDispatcher from starling ?
+			sTweenPool.push(tween);
+		}
     }
 }

@@ -9,7 +9,16 @@ package phantom.core.animation
         private var _repeatCount:int;
         private var _isDisposed:Boolean;
         private var _couldTick:Boolean;
-        
+		/** A DelayedCall allows you to execute a method after a certain time has passed. Since it 
+		 *  implements the IAnimatable interface, it can be added to a juggler. In most cases, you 
+		 *  do not have to use this class directly; the juggler class contains a method to delay
+		 *  calls directly. 
+		 * 
+		 *  <p>DelayedCall dispatches an Event of type 'Event.REMOVE_FROM_JUGGLER' when it is finished,
+		 *  so that the juggler automatically removes it when its no longer needed.</p>
+		 * 
+		 *  @see Juggler
+		 */ 
         public function DelayedCall(call:Function, delay:Number, args:Array=null)
         {
             reset(call, delay, args);
