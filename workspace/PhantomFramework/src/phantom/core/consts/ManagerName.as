@@ -14,5 +14,6 @@ package phantom.core.consts
 			    public static const RENDER:String 					= "render manager";
 			    public static const LANGUAGE:String 				= "language manager";
 			    public static const DRAG:String 					= "drag manager";
+			    public static const KEY:String 						= "key mapper manager";
 	}
 }

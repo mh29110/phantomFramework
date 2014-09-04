@@ -1,6 +1,6 @@
 package phantom.core.interfaces
 {
-	public interface IDispose
+	public interface IDisposable
 	{
 		function dispose():void;
 	}

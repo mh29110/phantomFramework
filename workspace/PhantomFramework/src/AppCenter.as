@@ -14,6 +14,7 @@ package {
 	import phantom.core.managers.render.RenderManager;
 	import phantom.core.managers.render.StageManager;
 	import phantom.core.managers.render.TipManager;
+	import phantom.core.utils.KeyMapper;
 	
 	/**
 	 * 管理器中心, 提供服务,但不需要抛出事件.   // 区别于IMediator
@@ -51,6 +52,10 @@ package {
 			
 			_drag = new DragManager(stage);
 			addManager(_drag,ManagerName.DRAG);
+			
+			_keyMapper = new KeyMapper(stage);
+			addManager(_keyMapper,ManagerName.KEY); //usage 见 @see KeyMapper
+//			_keyMapper.addKeyDown( Keyboard.W, dummy, false );
 		}
 
 
@@ -109,6 +114,8 @@ package {
 		private var _render:RenderManager;
 
 		private var _drag:DragManager;
+
+		private var _keyMapper:KeyMapper;
 
 		public static function get instance() : AppCenter
 		{

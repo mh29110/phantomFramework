@@ -1,4 +1,8 @@
 * log
+** 9.4
+*** add utility:
++ KeyMapper
++ Stats 
 ** 9.2 
 *** add windowbase
 **** using dragManager with windowBase

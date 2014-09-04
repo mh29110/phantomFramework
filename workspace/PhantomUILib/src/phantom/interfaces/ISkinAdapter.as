@@ -4,10 +4,10 @@ package phantom.interfaces
     import flash.display.DisplayObjectContainer;
     import flash.geom.Point;
     
-    import phantom.core.interfaces.IDispose;
+    import phantom.core.interfaces.IDisposable;
     
 
-    public interface ISkinAdapter extends IDispose
+    public interface ISkinAdapter extends IDisposable
     {
         /**
          * 从父级对象中移除

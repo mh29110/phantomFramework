@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
   <includeClasses>
-    <classEntry path="phantom.core.interfaces.IDispose"/>
+    <classEntry path="phantom.core.interfaces.IDisposable"/>
     <classEntry path="phantom.core.interfaces.IManager"/>
     <classEntry path="phantom.core.managers.render.StageManager"/>
     <classEntry path="phantom.core.consts.ManagerName"/>

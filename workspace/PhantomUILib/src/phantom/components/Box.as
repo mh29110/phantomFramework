@@ -3,7 +3,7 @@ package phantom.components
     import flash.display.DisplayObject;
     import flash.display.DisplayObjectContainer;
     
-    import phantom.core.interfaces.IDispose;
+    import phantom.core.interfaces.IDisposable;
     import phantom.interfaces.IBox;
     
     public class Box extends ComponentAdapter implements IBox
@@ -46,10 +46,10 @@ package phantom.components
          */        
         public function removeChildren(doDispose:Boolean = true):void
         {
-            var childCouldDispose:IDispose;
+            var childCouldDispose:IDisposable;
             while(numChildren)
             {
-                childCouldDispose = removeChildAt(0) as IDispose;
+                childCouldDispose = removeChildAt(0) as IDisposable;
                 if(childCouldDispose && doDispose)
                 {
                     childCouldDispose.dispose();
@@ -180,12 +180,12 @@ package phantom.components
 		{
 			super.destruct();
 			
-			var disposeNode:IDispose;
+			var disposeNode:IDisposable;
 			if(_adapterList)
 			{
 				while(_adapterList.length)
 				{
-					disposeNode = _adapterList.pop() as IDispose;
+					disposeNode = _adapterList.pop() as IDisposable;
 					if(disposeNode)
 					{
 						disposeNode.dispose();

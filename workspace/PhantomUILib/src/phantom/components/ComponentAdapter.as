@@ -15,14 +15,14 @@ package phantom.components
     
     import phantom.consts.DefaultFontConfig;
     import phantom.core.events.UIEvent;
-    import phantom.core.interfaces.IDispose;
+    import phantom.core.interfaces.IDisposable;
     import phantom.core.ns.PhantomInternalNamespace;
     import phantom.core.utils.ObjectUtils;
     import phantom.interfaces.IComponent;
     
     
 	use namespace PhantomInternalNamespace;
-    public class ComponentAdapter implements IComponent,IDispose
+    public class ComponentAdapter implements IComponent,IDisposable
 	{
         private var _eventList:Vector.<String>;
         private var _eventFunctionList:Vector.<Function>;

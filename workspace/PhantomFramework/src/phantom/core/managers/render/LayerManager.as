@@ -7,6 +7,7 @@ package phantom.core.managers.render
 	
 	import phantom.core.consts.ManagerName;
 	import phantom.core.interfaces.IManager;
+	import phantom.core.utils.Stats;
 	
 	public class LayerManager implements IManager
 	{
@@ -35,6 +36,9 @@ package phantom.core.managers.render
 //			addToLayerAt(AppCenter.instance.dialog,DIALOG_LAYER);
 			addToLayerAt(AppCenter.instance.tip,TIP_LAYER,false);
 
+			// debug stats  panel
+			var stats:Stats = new Stats();
+			_stageContainer.addChild(stats);
 			onResize();
 		}
 		
