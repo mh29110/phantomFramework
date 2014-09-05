@@ -285,6 +285,8 @@ package
 			var loader:Loader = loaderInfo.loader;
 			var gameInitializer:DisplayObject = loader.content;
 			stage.addChild(gameInitializer);
+			_percentBar.visible = false;
+			_percentBar = null;
 			onResize();
 		}
 		

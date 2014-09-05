@@ -2,11 +2,23 @@ package commands.system
 {
 	import commands.consts.CommandListSystem;
 	
+	import gamescene.Zest3d;
+	
 	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.patterns.command.SimpleCommand;
 	
+	import phantom.core.consts.ManagerName;
+	import phantom.core.handlers.Handler;
+	import phantom.core.managers.LoaderManager;
+	import phantom.core.managers.render.StageManager;
+	
 	import view.consts.ScreenUIDefine;
 	
+	/**
+	 * 
+	 * @author liphantomjia@gmail.com
+	 * 
+	 */
 	public class GameEnterCommand extends SimpleCommand
 	{
 		public function GameEnterCommand()
@@ -15,9 +27,6 @@ package commands.system
 		}
 		override public function execute(notification:INotification):void
 		{
-			
-//			var majorScreen:ScreenAdapterMediator = new ScreenAdapterMediator("majorscreen");
-//			facade.registerMediator(majorScreen);
 			
 			facade.sendNotification(CommandListSystem.OPEN_SCREEN, [ScreenUIDefine.MajorScreen]);
 			
@@ -68,6 +77,17 @@ package commands.system
 			
 			sendNotification(CommandGameOrder.BACK_TO_CITY, [false]);*/
 			
+			//显示主场景
+			var app:AppCenter = AppCenter.instance;
+			var stageManager:StageManager = app.getManager(ManagerName.STAGE) as StageManager;
+			
+			
+			
+			var zest:Zest3d = new Zest3d();
+			stageManager.stage.addChild(zest); 
+			//占位符加载
+			
 		}
+		
 	}
 }
