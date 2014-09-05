@@ -12,6 +12,7 @@ package
     
     import splash.AppFacade;
     import splash.VersionSprite;
+    import gamescene.Zest3d;
     
     public class GameStage extends VersionSprite
     {
@@ -47,6 +48,9 @@ package
 
 			var layerManager:LayerManager = new LayerManager(stage);
 			AppCenter.instance.addManager(layerManager,ManagerName.LAYER);
+			
+			var zest:Zest3d = new Zest3d();
+			stage.addChild(zest);
 
 			initServices(null);
 
