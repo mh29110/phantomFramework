@@ -139,12 +139,13 @@ package
 
         private function prepareNetworkServ():void
         {
-			var network:NetworkManager = appCenter.getManager(ManagerName.NETWORK) as NetworkManager;
-			network.createSocket(ConnectionType.GAME,GlobalConfig.host,GlobalConfig.port);
-			
-			//when connected then do this ...>
-			var packet:SocketPacket = new SocketPacket();
-			network.send(packet);
+			// 为了本地测试,暂时禁用掉网络,-use-network=false
+//			var network:NetworkManager = appCenter.getManager(ManagerName.NETWORK) as NetworkManager;
+//			network.createSocket(ConnectionType.GAME,GlobalConfig.host,GlobalConfig.port);
+//			
+//			//when connected then do this ...>
+//			var packet:SocketPacket = new SocketPacket();
+//			network.send(packet);
 			
 			// to @onServerConnected() ->   	
 			initLoadGameStage();	

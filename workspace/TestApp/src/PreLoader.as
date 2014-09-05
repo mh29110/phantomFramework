@@ -12,6 +12,7 @@ package
 	import flash.external.ExternalInterface;
 	import flash.filters.DropShadowFilter;
 	import flash.net.SharedObject;
+	import flash.net.registerClassAlias;
 	import flash.system.Capabilities;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
@@ -21,7 +22,6 @@ package
 	
 	import phantom.core.consts.ManagerName;
 	import phantom.core.handlers.Handler;
-	import phantom.core.managers.render.RenderManager;
 	import phantom.core.managers.render.StageManager;
 	
 	import splash.VersionSprite;

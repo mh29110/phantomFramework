@@ -10,6 +10,7 @@ package commands.system
 	import phantom.core.consts.ManagerName;
 	import phantom.core.handlers.Handler;
 	import phantom.core.managers.LoaderManager;
+	import phantom.core.managers.ResLoader;
 	import phantom.core.managers.render.StageManager;
 	
 	import view.consts.ScreenUIDefine;
@@ -21,6 +22,7 @@ package commands.system
 	 */
 	public class GameEnterCommand extends SimpleCommand
 	{
+		private var _loader:LoaderManager;
 		public function GameEnterCommand()
 		{
 			super();
@@ -79,14 +81,24 @@ package commands.system
 			
 			//显示主场景
 			var app:AppCenter = AppCenter.instance;
-			var stageManager:StageManager = app.getManager(ManagerName.STAGE) as StageManager;
-			
-			
+			_loader = app.getManager(ManagerName.LOADER) as LoaderManager;
+			_loader.loadAssets([{url:"assets/3ds/dancer.3ds",type:ResLoader.BYTE,size:100},
+								{url:"assets/atf/toon_gradient2.atf",type:ResLoader.BYTE,size:100},
+								{url:"assets/atf/space.atf",type:ResLoader.BYTE,size:100},
+								{url:"assets/atf/bw_checked.atf",type:ResLoader.BYTE,size:100},
+								{url:"assets/particle.atf",type:ResLoader.BYTE,size:100},
+								{url:"assets/atfcube/skybox.atf",type:ResLoader.BYTE,size:100},
+								{url:"assets/cove.atf",type:ResLoader.BYTE,size:50}],
+								new Handler(onLoadedHandler));
+		}
+		
+		private function onLoadedHandler():void
+		{
+			var stageManager:StageManager = AppCenter.instance.getManager(ManagerName.STAGE) as StageManager;
 			
 			var zest:Zest3d = new Zest3d();
 			stageManager.stage.addChild(zest); 
 			//占位符加载
-			
 		}
 		
 	}

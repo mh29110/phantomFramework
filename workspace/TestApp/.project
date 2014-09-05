@@ -14,4 +14,26 @@
 	<natures>
 		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>[source path] PhantomFramework-src</name>
+			<type>2</type>
+			<locationURI>DOCUMENTS/PhantomFramework/src</locationURI>
+		</link>
+		<link>
+			<name>[source path] PhantomUILib-src</name>
+			<type>2</type>
+			<locationURI>DOCUMENTS/PhantomUILib/src</locationURI>
+		</link>
+		<link>
+			<name>[source path] PureMVC-src</name>
+			<type>2</type>
+			<locationURI>DOCUMENTS/PureMVC/src</locationURI>
+		</link>
+		<link>
+			<name>[source path] Zest3D-src</name>
+			<type>2</type>
+			<locationURI>DOCUMENTS/Zest3D/src</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -10,23 +10,21 @@
  */
 package zest3d.applications 
 {
-	import flash.display.StageAlign;
-	import flash.display.StageScaleMode;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.text.TextField;
 	import flash.utils.getTimer;
+	
 	import io.plugin.core.graphics.Color;
 	import io.plugin.core.interfaces.IDisposable;
 	import io.plugin.math.algebra.APoint;
 	import io.plugin.math.algebra.AVector;
+	
 	import zest3d.geometry.SkyboxGeometry;
 	import zest3d.scenegraph.Camera;
 	import zest3d.scenegraph.Culler;
 	import zest3d.scenegraph.Node;
 	import zest3d.scenegraph.Picker;
-	import zest3d.scenegraph.PickRecord;
-	import zest3d.scenegraph.Spatial;
 	
 	/**
 	 * ...
