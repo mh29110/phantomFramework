@@ -51,7 +51,7 @@ package gamescene
         {
 			_loader = AppCenter.instance.getManager(ManagerName.LOADER) as LoaderManager;
 			initScene();
-			initOther();
+//			initOther();
         }
 		
         override protected function update(appTime:Number):void 
@@ -184,6 +184,7 @@ package gamescene
 		}
 		
 		/// off time example place
+		// 掉帧严重.....
 		private function initOther():void
 		{
 			//particle
