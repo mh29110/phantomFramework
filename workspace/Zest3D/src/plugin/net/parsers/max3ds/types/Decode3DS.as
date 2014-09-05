@@ -91,7 +91,7 @@ package plugin.net.parsers.max3ds.types
 			}
 		}
 		
-		private static const _ChunkInfo: Array =
+		private const _ChunkInfo: Array =
 		[
 			new ChunkInfo(true,  CHUNK_M3DMAGIC,         "M3DMAGIC"              ),
 			new ChunkInfo(false, 0x2D2D,                 "SMAGIC"                ),

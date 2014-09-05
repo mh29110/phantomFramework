@@ -7,6 +7,9 @@ package gamescene
     
     import io.plugin.core.graphics.Color;
     import io.plugin.math.algebra.APoint;
+    import io.plugin.math.algebra.AVector;
+    import io.plugin.math.algebra.HMatrix;
+    import io.plugin.math.algebra.HQuaternion;
     
     import phantom.core.consts.ManagerName;
     import phantom.core.managers.LoaderManager;
@@ -14,6 +17,9 @@ package gamescene
     import plugin.net.parsers.max3ds.ParserAdapter3DS;
     
     import zest3d.applications.Zest3DApplication;
+    import zest3d.controllers.KeyframeController;
+    import zest3d.controllers.enum.RepeatType;
+    import zest3d.datatypes.Transform;
     import zest3d.geometry.ParticleGeometry;
     import zest3d.geometry.SkyboxGeometry;
     import zest3d.localeffects.CartoonEffect;
@@ -39,6 +45,8 @@ package gamescene
 
         private var _loader:LoaderManager;
 
+        private var _light:Light;
+
         override protected function initialize():void 
         {
 			_loader = AppCenter.instance.getManager(ManagerName.LOADER) as LoaderManager;
@@ -63,23 +71,23 @@ package gamescene
 			skybox = new SkyboxGeometry( TextureCube.fromByteArray( _loader.getResLoaded("assets/atfcube/skybox.atf") ) );
 			camera.position = new APoint( 0, -5, -8 );
 			
-			var spaceTexture:Texture2D = Texture2D.fromByteArray( _loader.getResLoaded("assets/atf/space.atf") );
+			initLight();
 			
-			var checkedTexture:Texture2D = Texture2D.fromByteArray( _loader.getResLoaded("assets/atf/bw_checked.atf") );
+			initOimoWorld();
 			
-			var light:Light = new Light( LightType.POINT );
-			light.position = new APoint( 0, -10, -8 );
-			light.ambient = new Color( 0.1, 0.1, 0.1 );
-			light.specular = new Color( 0.9, 0.9, 0.9, 50 );
-			//			light.exponent = 6;
-			
-			var spaceEffect:PhongEffect = new PhongEffect( spaceTexture, light );
-			
+			init3DModels();
+		}
+		
+		private function initOimoWorld():void
+		{
 			// Oimo
 			_oimoWorld = new Zest3DOimoWorld( 30 );
 			
 			
 			// Add Spheres
+			var spaceTexture:Texture2D = Texture2D.fromByteArray( _loader.getResLoaded("assets/atf/space.atf") );
+			var spaceEffect:PhongEffect = new PhongEffect( spaceTexture, _light );
+			
 			var i:int;
 			for ( i = 0; i < 100; ++i )
 			{
@@ -104,22 +112,73 @@ package gamescene
 			plane.culling = CullingType.NEVER;
 			_oimoWorld.addCube( plane, 10, 10, 10, RigidBody.BODY_STATIC );
 			scene.addChild( plane );
-			
+		}
+		
+		private function initLight():void
+		{
+			_light = new Light( LightType.POINT );
+			_light.position = new APoint( 0, -10, -8 );
+			_light.ambient = new Color( 0.1, 0.1, 0.1 );
+			_light.specular = new Color( 0.9, 0.9, 0.9, 50 );
+			//			light.exponent = 6;
+		}
+		
+		private function init3DModels():void
+		{
 			//3d model
 			var parser:ParserAdapter3DS = new ParserAdapter3DS( _loader.getResLoaded("assets/3ds/dancer.3ds"), true, true );
 			parser.parse();
 			
 			var gradientTexture: Texture2D = Texture2D.fromByteArray( _loader.getResLoaded("assets/atf/toon_gradient2.atf") );
-//			var checkedTexture:Texture2D = Texture2D.fromByteArray( _loader.getResLoaded("assets/atf/bw_checked.atf") );
+			//			var checkedTexture:Texture2D = Texture2D.fromByteArray( _loader.getResLoaded("assets/atf/bw_checked.atf") );
 			
-			
-			var cartoonEffect:CartoonEffect = new CartoonEffect( checkedTexture, gradientTexture, light );
+			var checkedTexture:Texture2D = Texture2D.fromByteArray( _loader.getResLoaded("assets/atf/bw_checked.atf") );
+			var cartoonEffect:CartoonEffect = new CartoonEffect( checkedTexture, gradientTexture, _light );
 			_dancer = parser.getMeshAt( 0 );
 			_dancer.updateModelSpace( UpdateType.NORMALS );
 			_dancer.effect = cartoonEffect;
 			_dancer.rotationX = 90 * (Math.PI / 180);
 			_dancer.rotationZ = 180 * (Math.PI / 180);
-			_dancer.scaleUniform = 3;
+			_dancer.scaleUniform = 15;
+			
+			var _keyframeController:KeyframeController = new KeyframeController( 0, 3, 4, 4, new Transform() );
+			_keyframeController.minTime = 0;
+			_keyframeController.maxTime = 9000;
+			_keyframeController.repeat = RepeatType.WRAP;
+			
+			// rotations
+			var m0:HMatrix = new HMatrix().rotation( AVector.UNIT_Z, (Math.PI / 180) * 90);
+			var m1:HMatrix = new HMatrix().rotation( AVector.UNIT_Y, (Math.PI / 180) * 180);
+			var m2:HMatrix = new HMatrix().rotation( AVector.UNIT_X, (Math.PI / 180) * 180);
+			var m3:HMatrix = new HMatrix().rotation( AVector.UNIT_Y, (Math.PI / 180) * 90);
+			_keyframeController.rotations[0] = HQuaternion.fromRotationMatrix( m0 );
+			_keyframeController.rotations[1] = HQuaternion.fromRotationMatrix( m1 );
+			_keyframeController.rotations[2] = HQuaternion.fromRotationMatrix( m2 );
+			_keyframeController.rotations[3] = HQuaternion.fromRotationMatrix( m3 );
+			_keyframeController.rotationTimes[0] = 0;
+			_keyframeController.rotationTimes[1] = 3000;
+			_keyframeController.rotationTimes[2] = 6000;
+			_keyframeController.rotationTimes[3] = 9000;
+			
+			// scales
+			_keyframeController.scales[0] = 0.5;
+			_keyframeController.scales[1] = 0.1;
+			_keyframeController.scales[2] = 2;
+			_keyframeController.scales[3] = 1;
+			_keyframeController.scaleTimes[0] = 0;
+			_keyframeController.scaleTimes[1] = 3000;
+			_keyframeController.scaleTimes[2] = 6000;
+			_keyframeController.scaleTimes[3] = 9000;
+			
+			//translations
+			_keyframeController.translations[0] = new APoint( -5, -2, 0 );
+			_keyframeController.translations[1] = new APoint(  2, -2, 0 );
+			_keyframeController.translations[2] = new APoint(  2,  2, 2 );
+			_keyframeController.translationTimes[0] = 0;
+			_keyframeController.translationTimes[1] = 4500;
+			_keyframeController.translationTimes[2] = 9000;
+			
+			_dancer.addController( _keyframeController );
 			
 			scene.addChild( _dancer );
 		}
