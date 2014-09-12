@@ -84,6 +84,7 @@ package commands.system
 			_loader = app.getManager(ManagerName.LOADER) as LoaderManager;
 			_loader.loadAssets([{url:"assets/3ds/dancer.3ds",type:ResLoader.BYTE,size:100},
 								{url:"assets/3ds/crate.3ds",type:ResLoader.BYTE,size:100},
+								{url:"assets/3ds/Rikku.3ds",type:ResLoader.BYTE,size:100},
 								{url:"assets/3ds/witcher.3ds",type:ResLoader.BYTE,size:100},
 								{url:"assets/atf/toon_gradient2.atf",type:ResLoader.BYTE,size:100},
 								{url:"assets/atf/space.atf",type:ResLoader.BYTE,size:100},
