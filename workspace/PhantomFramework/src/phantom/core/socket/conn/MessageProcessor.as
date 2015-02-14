@@ -48,8 +48,8 @@ public class MessageProcessor
 				
 				
                	bytes.endian = Endian.LITTLE_ENDIAN;// todo
-               	bytes.writeUnsignedInt(1);
-               	bytes.writeInt(_message.getID());
+               	bytes.writeUnsignedInt(0);
+               	bytes.writeInt(8);
                	bytes.writeUTFBytes("mac");
                	bytes.writeBytes(data);
 				return bytes;

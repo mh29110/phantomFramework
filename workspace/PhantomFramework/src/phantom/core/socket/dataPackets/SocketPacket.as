@@ -6,29 +6,29 @@ package phantom.core.socket.dataPackets
 	
 	public class SocketPacket implements IProtocol
 	{
-		private var _type:int = 1;
-		private var _id:int ;
-		private var _name:String;
+		public var type:int = 1;
+		public var id:int;
+		public var name:String;
 		public function SocketPacket()
 		{
 		}
 		
 		public function init(data:ByteArray):void
 		{
-			_id = data.readInt();
-			_name = data.readUTF();
+			id = data.readInt();
+			name = data.readUTF();
 		}
 		
 		public function toBytes():ByteArray
 		{
 			var ba:ByteArray = new ByteArray();
-			ba.writeInt(_type);
+			ba.writeInt(type);
 			return ba;
 		}
 		
 		public function getID():uint
 		{
-			return _type;
+			return id;
 		}
 	}
 }

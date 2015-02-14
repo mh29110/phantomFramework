@@ -153,15 +153,15 @@ public class SocketProxy extends EventDispatcher
 				switch(this._unsignedHeadLength)
 				{
 					case SocketConnectionHead.LENGTH_BYTE:
-						this._messageLength = this._sock.readUnsignedByte();
+//						this._messageLength = this._sock.readUnsignedByte();
 						//this._messageLength -= SocketConnectionHead.LENGTH_BYTE;
 						break;
 					case SocketConnectionHead.LENGTH_SHORT:
 						this._messageLength = this._sock.readUnsignedShort();
-						//this._messageLength -= SocketConnectionHead.LENGTH_SHORT;
+//						this._messageLength -= SocketConnectionHead.LENGTH_SHORT;
 						break;
 					case SocketConnectionHead.LENGTH_INT:
-						this._messageLength = this._sock.readUnsignedInt();
+//						this._messageLength = this._sock.readUnsignedInt();
 						//this._messageLength -= SocketConnectionHead.LENGTH_INT;
 						break;
 					default :
@@ -184,7 +184,7 @@ public class SocketProxy extends EventDispatcher
 					//创建一个ByteArray实例，并读取socket缓冲中的 信息长度数据
 					var dataByte:ByteArray = new ByteArray();
 					//dataByte.endian = Endian.LITTLE_ENDIAN;
-					dataByte.endian = Endian.BIG_ENDIAN;
+					dataByte.endian = Endian.LITTLE_ENDIAN;
 					//补足消息长度位置
 					
 					this._sock.readBytes(dataByte, 0, this._messageLength);

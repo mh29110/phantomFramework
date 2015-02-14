@@ -22,7 +22,7 @@ package {
 		/**是否支持鼠标滚轴滚动*/
 		public static var mouseWheelEnable:Boolean = true;
 		
-		public static const host:String = "192.168.10.101";
+		public static const host:String = "121.40.186.180";
 		public static const port:int = 6881;
 
 		/**
