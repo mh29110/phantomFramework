@@ -157,7 +157,7 @@ public class SocketProxy extends EventDispatcher
 						//this._messageLength -= SocketConnectionHead.LENGTH_BYTE;
 						break;
 					case SocketConnectionHead.LENGTH_SHORT:
-						this._messageLength = this._sock.readUnsignedShort();
+						this._messageLength = 108;//this._sock.readUnsignedShort();//todo tobefixed
 //						this._messageLength -= SocketConnectionHead.LENGTH_SHORT;
 						break;
 					case SocketConnectionHead.LENGTH_INT:

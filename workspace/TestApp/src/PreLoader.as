@@ -12,7 +12,6 @@ package
 	import flash.external.ExternalInterface;
 	import flash.filters.DropShadowFilter;
 	import flash.net.SharedObject;
-	import flash.net.registerClassAlias;
 	import flash.system.Capabilities;
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
